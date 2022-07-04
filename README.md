@@ -6,6 +6,20 @@
 |    Student Name     | David Ye Luo         |
 |    Student Email    | dyeluo@mail.sfsu.edu |
 
+# Project Structure Layout
+
+## Builds
+
+Contains builds to run and play. Supported platforms: Windows, Linux, and Mac.
+
+## TankGame/Assets
+
+Contains custom-made assets and assets from other sources.
+
+## TankGame/Scripts
+
+Contains runnable code. For more information about the scripts see the readme file inside the project.
+
 # Required Information when Submitting Tank Game
 
 ## Version of Unity Used: 2021.3.3f1 LTS
