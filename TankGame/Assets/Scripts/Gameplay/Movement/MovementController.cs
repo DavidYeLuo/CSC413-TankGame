@@ -1,10 +1,8 @@
-using System;
-using Drivers;
+using InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
-namespace Controllers
+namespace Gameplay.Movement
 {
     [RequireComponent(typeof(MovementDriver))]
     public class MovementController : MonoBehaviour

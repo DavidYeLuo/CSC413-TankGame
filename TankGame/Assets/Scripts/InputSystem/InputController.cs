@@ -1,11 +1,7 @@
 using System;
-using System.Collections;
-using Drivers;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Controllers
+namespace InputSystem
 {
     [RequireComponent(typeof(InputDriver))]
     public class InputController : MonoBehaviour
