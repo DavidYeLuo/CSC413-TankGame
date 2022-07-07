@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea56275fed5c4de2b8c8b3192f40b5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUsingIO: 1
+  shouldInjectControl: 1
 --- !u!114 &1714652494
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,15 +2,15 @@ using System;
 using Drivers;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Controllers
 {
     [RequireComponent(typeof(MovementDriver))]
     public class MovementController : MonoBehaviour
     {
-        [SerializeField] private bool isUsingIO;
+        [SerializeField] private bool shouldInjectControl;
 
-        private PlayerControls controls;
         private InputAction moveControl;
             
         private MovementDriver driver;
@@ -19,13 +19,12 @@ namespace Controllers
         {
             driver = GetComponent<MovementDriver>();
             // moveControl = controls.Gameplay.Move;
-            controls = InputDriver.GetControls();
             moveControl = InputDriver.GetControls().Gameplay.Move;
         }
 
         private void FixedUpdate()
         {
-            if (!isUsingIO) return;
+            if (!shouldInjectControl) return;
             Move(moveControl.ReadValue<Vector2>());
         }
 
