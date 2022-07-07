@@ -12,37 +12,20 @@ namespace Controllers
 
         private PlayerControls controls;
         private InputAction moveControl;
-
-        [SerializeField] private UserMode userMode;
             
         private MovementDriver driver;
-
-        private void Awake()
-        {
-            controls = new PlayerControls();
-        }
-
-        private void OnEnable()
-        {
-            controls.Gameplay.Enable();
-            InputDriver.changeEvent += OnUpdateUserMode;
-        }
-
-        private void OnDisable()
-        {
-            controls.Gameplay.Disable();
-            InputDriver.changeEvent -= OnUpdateUserMode;
-        }
 
         private void Start()
         {
             driver = GetComponent<MovementDriver>();
-            moveControl = controls.Gameplay.Move;
+            // moveControl = controls.Gameplay.Move;
+            controls = InputDriver.GetControls();
+            moveControl = InputDriver.GetControls().Gameplay.Move;
         }
 
         private void FixedUpdate()
         {
-            if (!isUsingIO || userMode != UserMode.Gameplay) return;
+            if (!isUsingIO) return;
             Move(moveControl.ReadValue<Vector2>());
         }
 
@@ -51,10 +34,13 @@ namespace Controllers
             if (direction == null) return;
             driver.Move(direction);
         }
-        
-        private void OnUpdateUserMode(UserMode mode)
-        {
-            this.userMode = mode;
+
+        /**
+         * TODO: Actually fire something. Right now it is only used to test switch modes.
+         */
+        private void OnFire()
+        { 
+            InputController.SwitchMode(UserMode.Gameplay);
         }
     }
 }

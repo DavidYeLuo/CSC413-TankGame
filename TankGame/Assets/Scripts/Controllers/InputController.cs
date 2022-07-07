@@ -24,10 +24,9 @@ namespace Controllers
             Destroy(this);
         }
 
-        private IEnumerator Start()
+        private void Start()
         {
-            driver = GetComponent<InputDriver>();
-            yield return new WaitForSeconds(3);
+            instance.driver = GetComponent<InputDriver>();
             SwitchMode(UserMode.UI);
         }
 

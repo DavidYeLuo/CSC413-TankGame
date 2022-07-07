@@ -6,23 +6,45 @@ namespace Drivers
 {
     public class InputDriver : MonoBehaviour
     {
-        public delegate void ChangeMode(UserMode mode);
-        public static event ChangeMode changeEvent;
-        
         [SerializeField] private UserMode mode;
 
-        private PlayerControls controls;
+        private static PlayerControls controls; // Other classes will use this
+
+        private void Awake()
+        {
+            if (controls == null)
+            {
+                controls = new PlayerControls();
+            }
+        }
+
+        private void OnEnable()
+        {
+            controls.Enable();
+        }
+
+        private void OnDisable()
+        {
+           controls.Disable(); 
+        }
+
+        public static PlayerControls GetControls()
+        {
+            return controls;
+        }
 
         public void SwitchToUIMode()
         {
+            controls.UI.Enable();
+            controls.Gameplay.Disable();
             mode = UserMode.UI;
-            changeEvent.Invoke(mode);
         }
 
         public void SwitchToGameplayMode()
         {
+            controls.UI.Disable();
+            controls.Gameplay.Enable();
             mode = UserMode.Gameplay;
-            changeEvent.Invoke(mode);
         }
     }
     public enum UserMode 
