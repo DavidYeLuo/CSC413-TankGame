@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea14d593ce67c5d5a0eea7bb80e9046, type: 3}
   m_Name: Movement_MaxVelocity
   m_EditorClassIdentifier: 
-  value: 10
-  initValue: 10
+  value: 20
+  initValue: 20

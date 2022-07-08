@@ -31,13 +31,5 @@ namespace Gameplay.Movement
             if (direction == null) return;
             driver.Move(direction);
         }
-
-        /**
-         * TODO: Actually fire something. Right now it is only used to test switch modes.
-         */
-        private void OnFire()
-        { 
-            InputController.SwitchMode(UserMode.Gameplay);
-        }
     }
 }
