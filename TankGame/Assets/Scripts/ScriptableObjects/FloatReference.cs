@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace UI
+namespace ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "Data/", menuName = "FloatReference")]
+    [CreateAssetMenu(menuName = "FloatReference")]
     public class FloatReference : ScriptableObject
     {
         public delegate void valueChanged();
