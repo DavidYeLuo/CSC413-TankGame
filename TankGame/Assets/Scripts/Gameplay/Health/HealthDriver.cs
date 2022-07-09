@@ -18,7 +18,7 @@ namespace Gameplay.Health
             health += Validate(hp);
         }
 
-        public void SubtractHealth(int hp)
+        public void LoseHealth(int hp)
         {
             health -= Validate(hp);
         }

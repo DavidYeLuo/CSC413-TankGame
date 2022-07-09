@@ -12,9 +12,9 @@ namespace Gameplay.Health
         private HealthController controller;
         private void OnTriggerEnter(Collider collider)
         {
-            if (HealthController.TryAndGet(collider.gameObject, out controller))
+            if (HealthController.TryGetValue(collider.gameObject, out controller))
             {
-                controller.SubtractHealth(damage);
+                controller.LoseHealth(damage);
                 if (destroyOnTrigger)
                 {
                     this.gameObject.SetActive(false);

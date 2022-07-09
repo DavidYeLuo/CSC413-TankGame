@@ -7,30 +7,25 @@ namespace Gameplay.Health
     [RequireComponent(typeof(HealthDriver))]
     public class HealthController : MonoBehaviour
     {
-        private static Dictionary<GameObject, HealthController> map;
-        
-        private HealthDriver driver;
+        // private static Dictionary<GameObject, HealthController> map;
+        [SerializeField] private static Dictionary<GameObject, HealthController> map;
 
-        private void Awake()
-        {
-            if (map != null) return;
-            map = new Dictionary<GameObject, HealthController>();
-            Debug.Log("Dictionary initialized.");
-        }
+        private HealthDriver driver;
 
         private void Start()
         {
             driver = GetComponent<HealthDriver>();
             
-            Debug.LogFormat("Adding {0} and {1}", gameObject, this);
+            // map = new HashmapReference<GameObject, HealthController>();
+            map = new Dictionary<GameObject, HealthController>();
             map.Add(this.gameObject, this);
         }
         
         public void SetHealth(int hp) { driver.SetHealth(hp); }
         public void AddHealth(int hp) { driver.AddHealth(hp); }
-        public void SubtractHealth(int hp) { driver.SubtractHealth(hp); }
+        public void LoseHealth(int hp) { driver.LoseHealth(hp); }
 
-        public static bool TryAndGet(GameObject obj, out HealthController controller)
+        public static bool TryGetValue(GameObject obj, out HealthController controller)
         {
             return map.TryGetValue(obj, out controller);
         }
