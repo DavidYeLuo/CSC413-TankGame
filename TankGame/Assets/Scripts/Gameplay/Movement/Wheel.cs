@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
-    [SerializeField] private WheelCollider collider;
+    [SerializeField] private new WheelCollider collider;
 
     [Header("Debug")] 
     // Cache
