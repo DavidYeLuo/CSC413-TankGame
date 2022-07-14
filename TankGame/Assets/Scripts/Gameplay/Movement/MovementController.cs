@@ -1,3 +1,4 @@
+using System;
 using InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +21,19 @@ namespace Gameplay.Movement
             moveControl = InputDriver.GetControls().Gameplay.Move;
             moveControl.performed += OnMove;
             moveControl.canceled += OnMove;
+        }
+
+        private void OnEnable()
+        {
+            if (moveControl == null) return; // Needed since this is also called before start() 
+            moveControl.performed += OnMove;
+            moveControl.canceled += OnMove;
+        }
+
+        private void OnDisable()
+        {
+            moveControl.performed -= OnMove;
+            moveControl.canceled -= OnMove;
         }
 
         private void OnMove(InputAction.CallbackContext callback)
