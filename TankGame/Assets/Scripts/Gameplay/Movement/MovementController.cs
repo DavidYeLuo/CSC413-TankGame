@@ -16,7 +16,7 @@ namespace Gameplay.Movement
 
         private void Start()
         {
-            driver = GetComponent<MovementDriver>();
+            driver = GetComponent<TankMovementDriver>();
             // moveControl = controls.Gameplay.Move;
             moveControl = InputDriver.GetControls().Gameplay.Move;
             moveControl.performed += OnMove;

@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc634a797e852e5e7a46829a52e538ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToShoot: {fileID: 100008, guid: 879451a5e2214f143a7edf5dd3e32020, type: 3}
+  objectToShoot: {fileID: 5542287116271034213, guid: 0209967fdd74ba12ab9436386b91d863, type: 3}
   shootFrom: {fileID: 3946102802009217031}
 --- !u!1 &6278250049819794939
 GameObject:
