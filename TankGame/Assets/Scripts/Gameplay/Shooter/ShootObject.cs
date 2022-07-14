@@ -9,13 +9,20 @@ namespace Gameplay.Shooter
     {
         [SerializeField] private GameObject objectToShoot;
         [SerializeField] private GameObject shootFrom;
+        
+        [Header("Recoil")]
+        [Tooltip("Must have a RigidBody component for this to work")]
+        [SerializeField] private bool hasRecoil;
+        [SerializeField] private float recoilForce;
 
         private InputAction shootControl;
+        private Rigidbody rb;
 
         private void Start()
         {
             shootControl = InputDriver.GetControls().Gameplay.Fire;
             shootControl.performed += shoot;
+            rb = GetComponent<Rigidbody>();
         }
 
         private void OnEnable()
@@ -31,6 +38,10 @@ namespace Gameplay.Shooter
 
         public void shoot(InputAction.CallbackContext callback)
         {
+            if (hasRecoil)
+            {
+                rb.AddForce(recoilForce * (-1) * transform.forward, ForceMode.Force);
+            }
             GameObject.Instantiate(objectToShoot, shootFrom.transform.position, transform.rotation);
         }
     }

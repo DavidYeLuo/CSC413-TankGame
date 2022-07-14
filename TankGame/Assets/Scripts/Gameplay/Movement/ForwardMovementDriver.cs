@@ -6,6 +6,7 @@ using UnityEngine;
 namespace Gameplay.Movement
 {
     /**
+     * This class only job is to move the object forward by pushing it with force.
      * This class doesn't require a MovementController to function.
      */
     [RequireComponent(typeof(Rigidbody))]
