@@ -31,7 +31,7 @@ namespace Gameplay.Shooter
 
         public void shoot(InputAction.CallbackContext callback)
         {
-            GameObject.Instantiate(objectToShoot, shootFrom.transform.position, Quaternion.identity);
+            GameObject.Instantiate(objectToShoot, shootFrom.transform.position, transform.rotation);
         }
     }
 }
