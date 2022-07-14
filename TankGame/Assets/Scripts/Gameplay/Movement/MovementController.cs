@@ -18,12 +18,13 @@ namespace Gameplay.Movement
             driver = GetComponent<MovementDriver>();
             // moveControl = controls.Gameplay.Move;
             moveControl = InputDriver.GetControls().Gameplay.Move;
+            moveControl.performed += OnMove;
+            moveControl.canceled += OnMove;
         }
 
-        private void FixedUpdate()
+        private void OnMove(InputAction.CallbackContext callback)
         {
-            if (!shouldInjectControl) return;
-            Move(moveControl.ReadValue<Vector2>());
+            Move(callback.ReadValue<Vector2>());
         }
 
         public void Move(Vector2 direction)
