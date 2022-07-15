@@ -6,7 +6,6 @@ using UnityEngine.XR;
 
 namespace Gameplay.Movement
 {
-    [RequireComponent(typeof(Rigidbody))]
     public class TankMovementDriver : MovementDriver
     {
         [SerializeField] private float pushForce;
