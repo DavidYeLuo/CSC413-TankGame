@@ -8,11 +8,15 @@ using UnityEngine.InputSystem;
 
 public class AxisRotationMovement : MovementDriver
 {
+    [Header("User Settings")] 
+    [SerializeField] private float horizontalSensitivity;
+    [SerializeField] private float verticalSensitivity;
+    [Header("Developer Settings")]
     [SerializeField] private bool lockHorizontalRot;
     [SerializeField] private bool lockVerticalRot;
     [SerializeField] private GameObject turret;
     [SerializeField] private Rigidbody rb;
-    
+
     private InputAction lookControl;
     private Vector3 lookRotation;
 
@@ -37,10 +41,10 @@ public class AxisRotationMovement : MovementDriver
     {
         lookRotation = Vector3.zero;
         if(!lockHorizontalRot)
-            lookRotation += Vector3.up * direction.x;
-        if(!lockVerticalRot)
-            lookRotation += Vector3.left * direction.y;
+            lookRotation += Vector3.up * direction.x * horizontalSensitivity;
+        if (!lockVerticalRot)
+            lookRotation += turret.transform.right * direction.y * -1 * verticalSensitivity;
         if (lookRotation == Vector3.zero) return;
-        turret.transform.Rotate(lookRotation);
+        rb.AddTorque(lookRotation * Time.deltaTime, ForceMode.Impulse);
     }
 }

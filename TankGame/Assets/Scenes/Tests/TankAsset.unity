@@ -237,6 +237,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 953404391713527019, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: horizontalSensitivity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770877571268945166, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770877571268945166, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Limits.max
+      value: 179
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770877571268945166, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Limits.min
+      value: -179
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820209849767395968, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902262404312799815, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902262404312799815, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902262404312799815, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123215066374901962, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123215066374901962, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315760782383461122, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315760782383461122, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603795826663222754, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603795826663222754, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Limits.max
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603795826663222754, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Limits.min
+      value: -80
+      objectReference: {fileID: 0}
     - target: {fileID: 5754529090402705996, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
       propertyPath: m_Name
       value: GreenTank
@@ -283,6 +343,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5754529090402705997, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797209125965379014, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797209125965379014, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864533374610556693, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864533374610556693, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864533374610556693, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220027811768857343, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220027811768857343, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162531737862085772, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: lockVerticalRot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162531737862085772, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: veritcalSensitivity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162531737862085772, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: horizontalSensitivity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -910,10 +1010,9 @@ MonoBehaviour:
   objectToStare: {fileID: 185382986}
   distance: 10
   angleFromZPlane: 20
-  relativeLocation: {x: 0, y: 0, z: 0}
   objHasDifferentLocation: 0
+  relativeLocation: {x: 0, y: 0, z: 0}
   objLoc: {x: 0, y: 0, z: 0}
-  objRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1447064785
 GameObject:
   m_ObjectHideFlags: 0
