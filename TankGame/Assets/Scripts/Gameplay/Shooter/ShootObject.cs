@@ -39,9 +39,9 @@ namespace Gameplay.Shooter
         {
             if (hasRecoil)
             {
-                forceToApplyTo.AddForce(recoilForce * (-1) * transform.forward, ForceMode.Force);
+                forceToApplyTo.AddForce(recoilForce * (-1) * shootFrom.transform.forward, ForceMode.Force);
             }
-            Instantiate(objectToShoot, shootFrom.transform.position, transform.rotation);
+            Instantiate(objectToShoot, shootFrom.transform.position, shootFrom.transform.rotation);
         }
     }
 }

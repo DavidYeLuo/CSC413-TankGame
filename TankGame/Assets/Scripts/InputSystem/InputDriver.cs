@@ -49,6 +49,8 @@ namespace InputSystem
 
             if (changeModeEvent == null) return;
             changeModeEvent.Invoke(mode);
+            
+            // Cursor.lockState = CursorLockMode.None; // TODO: Do testing on locking cursor
         }
 
         public void SwitchToGameplayMode()
@@ -60,6 +62,13 @@ namespace InputSystem
             if (changeModeEvent == null) return;
             changeModeEvent.Invoke(mode);
         }
+        
+        // TODO: Do testing on locking cursor
+        // private void OnApplicationFocus(bool hasFocus)
+        // {
+        //     if(hasFocus && mode == UserMode.Gameplay)
+        //         Cursor.lockState = CursorLockMode.Confined;
+        // }
     }
     public enum UserMode 
     {
