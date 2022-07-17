@@ -39,11 +39,24 @@ namespace Gameplay.Camera
 
         private void FixedUpdate()
         {
+            UpdateRelativeLocation();
             UpdateObjLoc();
             UpdateCameraPosition();
             
             // UpdateObjRot();
             UpdateCamRotation();
+        }
+
+        private void UpdateRelativeLocation()
+        {
+            if (objHasDifferentLocation)
+            {
+                Transform objTransform = objLocation.GetTransform();
+                relativeLocation = objTransform.forward * Mathf.Cos((angleFromZPlane + 180) * Mathf.Deg2Rad);
+                relativeLocation += Vector3.up * Mathf.Sin(angleFromZPlane * Mathf.Deg2Rad);
+                // relativeLocation = relativeLocation.normalized;
+                relativeLocation *= distance;
+            }
         }
 
         private void UpdateCameraPosition()

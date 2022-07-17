@@ -15,5 +15,10 @@ namespace Gameplay.Camera
         {
             return objectLocation.transform.rotation;
         }
+
+        public Transform GetTransform()
+        {
+            return objectLocation.transform;
+        }
     }
 }
