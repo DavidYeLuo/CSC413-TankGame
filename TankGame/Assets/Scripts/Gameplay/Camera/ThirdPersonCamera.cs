@@ -7,6 +7,10 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay.Camera
 {
+    /**
+     * Obsolete: It is much easier and likely better performance if we attach the camera to the player instead.
+     */
+    [Obsolete]
     public class ThirdPersonCamera : MonoBehaviour
     {
         [SerializeField] private GameObject objectToStare;
