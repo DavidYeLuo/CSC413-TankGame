@@ -1,3 +1,4 @@
+using Gameplay.Camera.Interfaces;
 using UnityEngine;
 
 namespace Gameplay.Camera

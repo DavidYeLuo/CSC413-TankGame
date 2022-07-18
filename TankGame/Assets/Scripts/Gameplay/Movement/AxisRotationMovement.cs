@@ -6,7 +6,7 @@ using InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AxisRotationMovement : MovementDriver
+public class AxisRotationMovement : Movement
 {
     [Header("User Settings")] 
     [SerializeField] private float horizontalSensitivity;

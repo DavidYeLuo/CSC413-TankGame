@@ -18,6 +18,7 @@ namespace Gameplay.Shooter
 
         private InputAction shootControl;
 
+        // TODO: Make sure that we properly inject control with this.
         private void Start()
         {
             shootControl = InputDriver.GetControls().Gameplay.Fire;

@@ -1,3 +1,4 @@
+using Gameplay.Health.Interfaces;
 using UnityEngine;
 
 namespace Gameplay.Health

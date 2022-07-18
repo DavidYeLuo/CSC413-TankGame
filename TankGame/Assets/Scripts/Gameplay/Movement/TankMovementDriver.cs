@@ -6,7 +6,7 @@ using UnityEngine.XR;
 
 namespace Gameplay.Movement
 {
-    public class TankMovementDriver : MovementDriver
+    public class TankMovementDriver : Movement
     {
         [SerializeField] private float pushForce;
         [SerializeField] private float maxSteerDeg;

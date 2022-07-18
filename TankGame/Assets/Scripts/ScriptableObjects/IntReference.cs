@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "IntReference")]
+    [CreateAssetMenu(menuName = "DataReference/IntReference", fileName = "IntReference")]
     [System.Serializable]
     public class IntReference : ScriptableObject
     {

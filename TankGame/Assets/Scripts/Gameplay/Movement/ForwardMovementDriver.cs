@@ -10,7 +10,7 @@ namespace Gameplay.Movement
      * This class doesn't require a MovementController to function.
      */
     [RequireComponent(typeof(Rigidbody))]
-    public class ForwardMovementDriver : MovementDriver
+    public class ForwardMovementDriver : Movement
     {
         private Rigidbody rb;
         [SerializeField] private float force;

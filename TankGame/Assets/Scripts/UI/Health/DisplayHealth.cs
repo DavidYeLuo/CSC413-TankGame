@@ -1,9 +1,8 @@
-using System;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gameplay.Health
+namespace UI.Health
 {
     public class DisplayHealth : MonoBehaviour
     {

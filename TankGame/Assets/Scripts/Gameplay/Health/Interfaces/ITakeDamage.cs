@@ -1,4 +1,4 @@
-namespace Gameplay.Health
+namespace Gameplay.Health.Interfaces
 {
     public interface ITakeDamage
     {

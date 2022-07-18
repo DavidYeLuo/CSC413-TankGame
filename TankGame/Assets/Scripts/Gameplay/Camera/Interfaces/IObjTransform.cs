@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Camera
+namespace Gameplay.Camera.Interfaces
 {
     public interface IObjTransform : IObjLocation, IObjRotation
     {
