@@ -175,7 +175,7 @@ MonoBehaviour:
   rpm: 0
   steerAngle: 0
   rot: {x: 0, y: 0, z: 0, w: 0}
-  temp: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &3399210631533565716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7420693889321354647, guid: 8cb243221ab01e09a9ecd4ac59dd5980, type: 3}
@@ -228,7 +228,7 @@ MonoBehaviour:
   rpm: 0
   steerAngle: 0
   rot: {x: 0, y: 0, z: 0, w: 0}
-  temp: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &5039654819838001667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 875816616949239936, guid: 8cb243221ab01e09a9ecd4ac59dd5980, type: 3}
@@ -312,7 +312,7 @@ MonoBehaviour:
   rpm: 0
   steerAngle: 0
   rot: {x: 0, y: 0, z: 0, w: 0}
-  temp: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &7518221426955764684 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2414460757028540751, guid: 8cb243221ab01e09a9ecd4ac59dd5980, type: 3}
@@ -334,4 +334,4 @@ MonoBehaviour:
   rpm: 0
   steerAngle: 0
   rot: {x: 0, y: 0, z: 0, w: 0}
-  temp: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}

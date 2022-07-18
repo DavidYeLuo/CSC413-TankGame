@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7238713114990129438}
   - component: {fileID: 5075643681008160464}
   - component: {fileID: 8706231777883364329}
+  - component: {fileID: 5578468665017295937}
   m_Layer: 0
   m_Name: TankFree_Canon
   m_TagString: Untagged
@@ -100,6 +101,18 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5578468665017295937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890023727066157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827c9125016463a91997437c97d38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &678607438368431061
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +241,7 @@ GameObject:
   - component: {fileID: 3418267998945963084}
   - component: {fileID: 8846365341733760780}
   - component: {fileID: 3280163097885954821}
+  - component: {fileID: 3488700086076164101}
   m_Layer: 0
   m_Name: TankFree_Tower
   m_TagString: Untagged
@@ -316,6 +330,18 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3488700086076164101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771073510144250932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827c9125016463a91997437c97d38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1057125474450156019
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +482,7 @@ GameObject:
   - component: {fileID: 6482466670498065660}
   - component: {fileID: 3194386974981682315}
   - component: {fileID: 2107444519818380727}
+  - component: {fileID: 4419605297790433536}
   m_Layer: 0
   m_Name: TankFree_Body
   m_TagString: Untagged
@@ -507,6 +534,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.41, y: 1.04, z: 2.09}
   m_Center: {x: 0.0000003874302, y: 0.06295732, z: -0.038929284}
+--- !u!114 &4419605297790433536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219616722805965741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0827c9125016463a91997437c97d38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1808424986506496681
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8847920193221792838}
   - component: {fileID: 2079124520738588490}
+  - component: {fileID: 7367009409517282124}
   m_Layer: 0
   m_Name: BaseTankPhysics
   m_TagString: Untagged
@@ -963,3 +1003,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectLocation: {fileID: 1219616722805965741}
+--- !u!114 &7367009409517282124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847920193221792839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aae88440ac9ad15a896245b079a253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllers:
+  - {fileID: 4419605297790433536}
+  - {fileID: 3488700086076164101}
+  - {fileID: 5578468665017295937}
+  health: 10
+  maxHealth: 10
+  useAssets: 0
+  healthAsset: {fileID: 0}
+  maxHealthAsset: {fileID: 0}
