@@ -9,10 +9,13 @@ using UnityEngine;
 public class CamInstantiator : MonoBehaviour
 {
     [SerializeField] private Camera cam;
-    [SerializeField] private CameraLocation cameraLocation;
+    [SerializeField] private GameObject cameraLocation;
 
     private void Start()
     {
+        // Developer warning
+        if(cameraLocation.GetComponent<CameraLocation>() == null) Debug.Log("CamInstantiator: camera location isn't a type CameraLocation");
+        
         // Sets the camera's transform to be the same as the location's transform.
         cam.transform.position = cameraLocation.transform.position;
         cam.transform.rotation = cameraLocation.transform.rotation;
