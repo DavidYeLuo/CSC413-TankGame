@@ -4,13 +4,13 @@ using Gameplay.Camera;
 using Gameplay.Health;
 using Gameplay.Movement;
 using ScriptableObjects;
+using Systems.CameraSystem;
 using UI.Health;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // TODO: This is currently a temporary solution to adding a camera to a game object.
 // We still need to figure out how we are going to deal with multiple player.
-namespace Systems.CameraSystem
+namespace Systems
 {
     public class PlayerCreator : MonoBehaviour
     {
