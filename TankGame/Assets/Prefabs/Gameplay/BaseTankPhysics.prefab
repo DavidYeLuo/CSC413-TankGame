@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5075643681008160464}
   - component: {fileID: 8706231777883364329}
   - component: {fileID: 5578468665017295937}
+  - component: {fileID: 291307115698748383}
   m_Layer: 0
   m_Name: TankFree_Canon
   m_TagString: Untagged
@@ -111,6 +112,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0827c9125016463a91997437c97d38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &291307115698748383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890023727066157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5e15ff0f5f4ca99dd6c2c25adc0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &678607438368431061
@@ -242,6 +255,7 @@ GameObject:
   - component: {fileID: 8846365341733760780}
   - component: {fileID: 3280163097885954821}
   - component: {fileID: 3488700086076164101}
+  - component: {fileID: 5130282657262098140}
   m_Layer: 0
   m_Name: TankFree_Tower
   m_TagString: Untagged
@@ -340,6 +354,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0827c9125016463a91997437c97d38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5130282657262098140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771073510144250932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5e15ff0f5f4ca99dd6c2c25adc0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1057125474450156019
@@ -483,6 +509,7 @@ GameObject:
   - component: {fileID: 3194386974981682315}
   - component: {fileID: 2107444519818380727}
   - component: {fileID: 4419605297790433536}
+  - component: {fileID: 4418527692114536569}
   m_Layer: 0
   m_Name: TankFree_Body
   m_TagString: Untagged
@@ -545,6 +572,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0827c9125016463a91997437c97d38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4418527692114536569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219616722805965741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5e15ff0f5f4ca99dd6c2c25adc0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1808424986506496681
@@ -878,7 +917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6969461681619211952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
