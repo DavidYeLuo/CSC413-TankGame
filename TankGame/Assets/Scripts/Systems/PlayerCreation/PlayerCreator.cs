@@ -5,11 +5,10 @@ using Gameplay.Health;
 using Gameplay.Movement;
 using ScriptableObjects;
 using Systems.CameraSystem;
+using Systems.PlayerCreation.Interfaces;
 using UI.Health;
 using UnityEngine;
 
-// TODO: This is currently a temporary solution to adding a camera to a game object.
-// We still need to figure out how we are going to deal with multiple player.
 namespace Systems.PlayerCreation
 {
     public class PlayerCreator : MonoBehaviour
@@ -19,10 +18,6 @@ namespace Systems.PlayerCreation
 
         [Header("Player Initial State")]
         [SerializeField] private PlayerAsset playerAsset;
-        [SerializeField] private FloatReference movementForce; // aka pushForce or movement impulse
-
-        [SerializeField] private IntReference health;
-        [SerializeField] private IntReference maxHealth;
         
         [Header("UI")]
         [SerializeField] private List<Canvas> uiPrefabs;
@@ -30,7 +25,7 @@ namespace Systems.PlayerCreation
         private void Start()
         {
             GameObject playerParent = new GameObject("Players"); // For organization purpose
-            GameObject uiParent = new GameObject("UIs");
+            GameObject uiParent = new GameObject("UIs"); // For organization purpose
             
             List<Camera> cameraList = CameraHelperClass.GetNewCameras(numOfPlayers);
             
@@ -47,10 +42,12 @@ namespace Systems.PlayerCreation
                 Camera workingCamera = cameraList[i];
                 CameraHelperClass.AttachCamera(workingCamera, cameraLocation);
                 
-                // New Way
+                // Creating data for each player. (Have their own data)
+                // Preparing to set up dependencies.
                 PlayerAsset _playerAsset = Instantiate(playerAsset);
                 _playerAsset.DeepCopy(playerAsset);
                 
+                // Sets up dependencies
                 CreationController creationController = workingPlayer.GetComponent<CreationController>();
                 creationController.Init(_playerAsset);
                 
@@ -63,15 +60,15 @@ namespace Systems.PlayerCreation
                     workingUI.renderMode = RenderMode.ScreenSpaceCamera;
                     workingUI.planeDistance = 1;
                     workingUI.worldCamera = workingCamera;
-                    
+
+                    // Sets up dependencies
+                    creationController = workingUI.GetComponent<CreationController>();
+                    if(creationController != null)
+                        creationController.Init(_playerAsset);
+
                     // Organization purpose
                     workingUI.transform.SetParent(workingUIParent.transform);
                 }
-                
-                // Sets up UI dependencies
-                DisplayHealth displayHealth = workingUIParent.GetComponentInChildren<DisplayHealth>();
-                // displayHealth.SetHealth(_health); // TODO: Delete this after done
-                // displayHealth.SetMaxHealth(_maxHealth); // TODO: Delete this after done
 
                 // Organization purpose:
                 // Group players into one single game object.

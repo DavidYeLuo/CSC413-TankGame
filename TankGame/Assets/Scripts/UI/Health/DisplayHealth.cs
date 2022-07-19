@@ -1,28 +1,16 @@
 using ScriptableObjects;
+using Systems.PlayerCreation.Interfaces;
+using UnityEditor.Compilation;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Health
 {
-    public class DisplayHealth : MonoBehaviour
+    public class DisplayHealth : MonoBehaviour, IRequirePlayerAsset
     {
         private Image image;
         [SerializeField] private IntReference health;
         [SerializeField] private IntReference maxHealth;
-
-        public void SetHealth(IntReference asset)
-        {
-            if (health != null) health.valueChangeEvent -= OnHealthChange;
-            health = asset;
-            health.valueChangeEvent += OnHealthChange;
-        }
-
-        public void SetMaxHealth(IntReference asset)
-        {
-            if (maxHealth != null) maxHealth.valueChangeEvent -= OnHealthChange;
-            maxHealth = asset;
-            maxHealth.valueChangeEvent += OnHealthChange;
-        }
 
         private void Start()
         {
@@ -31,10 +19,20 @@ namespace UI.Health
 
         private void OnEnable()
         {
+            Subscribe();
+        }
+        private void OnDisable()
+        {
+            Unsubscribe();
+        }
+
+        private void Subscribe()
+        {
             health.valueChangeEvent += OnHealthChange;
             maxHealth.valueChangeEvent += OnHealthChange;
         }
-        private void OnDisable()
+
+        private void Unsubscribe()
         {
             health.valueChangeEvent -= OnHealthChange;
             maxHealth.valueChangeEvent -= OnHealthChange;
@@ -43,6 +41,15 @@ namespace UI.Health
         private void OnHealthChange()
         {
             image.fillAmount = (float) health.GetValue() / maxHealth.GetValue();
+        }
+
+        public void GetPlayerAsset(PlayerAsset asset)
+        {
+            if(health == null || maxHealth == null)
+                Unsubscribe();
+            health = asset.GetHealthAsset();
+            maxHealth = asset.GetMaxHealthAsset();
+            Subscribe();
         }
     }
 }
