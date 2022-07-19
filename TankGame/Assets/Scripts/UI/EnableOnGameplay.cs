@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using InputSystem;
+using Systems.InputSystem;
 using UnityEngine;
 
 public class EnableOnGameplay : MonoBehaviour

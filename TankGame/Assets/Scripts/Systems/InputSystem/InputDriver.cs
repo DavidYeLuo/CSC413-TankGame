@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace InputSystem
+namespace Systems.InputSystem
 {
     public class InputDriver : MonoBehaviour
     {

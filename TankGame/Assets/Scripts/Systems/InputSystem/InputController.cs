@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace InputSystem
+namespace Systems.InputSystem
 {
     [RequireComponent(typeof(InputDriver))]
     public class InputController : MonoBehaviour

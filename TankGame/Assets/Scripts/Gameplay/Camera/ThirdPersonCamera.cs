@@ -1,7 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
 using Gameplay.Camera.Interfaces;
-using InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Movement;
-using InputSystem;
+using Systems.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
