@@ -7,7 +7,7 @@ namespace Systems.CameraSystem
 {
     public static class CameraHelperClass
     {
-        public static List<Camera> GetNewCamera(int numberOfPlayers)
+        public static List<Camera> GetNewCameras(int numberOfPlayers)
         {
             List<Camera> list = new List<Camera>();
 
@@ -21,7 +21,7 @@ namespace Systems.CameraSystem
             return list;
         }
 
-        public static void AttachCamera(Camera from, GameObject to)
+        public static void AttachCamera(Camera from, CameraLocation to)
         {
             // Developer warning
             if(to.GetComponent<CameraLocation>() == null) 
@@ -35,6 +35,9 @@ namespace Systems.CameraSystem
             from.transform.SetParent(to.transform);
         }
 
+        /**
+         * Creates and return a new camera.
+         */
         private static Camera _GetNewCamera()
         {
             return new GameObject("Camera").AddComponent<Camera>();
@@ -47,6 +50,7 @@ namespace Systems.CameraSystem
             float width;
             float height;
             
+            // Ugly implementation but not sure who will have enough friends to make this a problem.
             switch (numOfPlayers)
             {
                 case 1:
