@@ -1,9 +1,10 @@
 using ScriptableObjects;
+using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 
 namespace Gameplay.Movement
 {
-    public class MovementDriver : Movement
+    public class MovementDriver : Movement, IRequirePlayerAsset
     {
         [SerializeField] protected FloatReference pushForceAsset;
 
@@ -36,5 +37,9 @@ namespace Gameplay.Movement
         //     force = Vector3.forward * direction.y + Vector3.right * direction.x;
         //     rb.AddRelativeForce(Time.deltaTime * force * forceMagnitude.GetValue(), ForceMode.Impulse);
         // }
+        public void GetPlayerAsset(PlayerAsset asset)
+        {
+            pushForceAsset = asset.GetPushForceAsset();
+        }
     }
 }

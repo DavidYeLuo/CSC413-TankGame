@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using Gameplay.Movement;
 using ScriptableObjects;
+using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 
 namespace Gameplay.Health
 {
-    public class HealthDriver : MonoBehaviour
+    public class HealthDriver : MonoBehaviour, IRequirePlayerAsset
     {
         [SerializeField] private List<HealthController> controllers;
         [SerializeField] private int health;
@@ -106,6 +107,12 @@ namespace Gameplay.Health
         public virtual void Heal(int health)
         {
             AddHealth(health);
+        }
+
+        public void GetPlayerAsset(PlayerAsset asset)
+        {
+            healthAsset = asset.GetHealthAsset();
+            maxHealthAsset = asset.GetMaxHealthAsset();
         }
     }
 }

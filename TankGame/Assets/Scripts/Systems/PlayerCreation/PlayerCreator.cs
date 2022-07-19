@@ -10,14 +10,15 @@ using UnityEngine;
 
 // TODO: This is currently a temporary solution to adding a camera to a game object.
 // We still need to figure out how we are going to deal with multiple player.
-namespace Systems
+namespace Systems.PlayerCreation
 {
     public class PlayerCreator : MonoBehaviour
     {
         [SerializeField] private int numOfPlayers;
         [SerializeField] private GameObject playerPrefab;
 
-        [Header("Player Initial State")] 
+        [Header("Player Initial State")]
+        [SerializeField] private PlayerAsset playerAsset;
         [SerializeField] private FloatReference movementForce; // aka pushForce or movement impulse
 
         [SerializeField] private IntReference health;
@@ -46,16 +47,12 @@ namespace Systems
                 Camera workingCamera = cameraList[i];
                 CameraHelperClass.AttachCamera(workingCamera, cameraLocation);
                 
-                // Sets up player initial state and also link up dependencies
-                // Would be nice if there is a better way to handle this...
-                FloatReference _movementForce = Instantiate(movementForce);
-                MovementDriver movementDriver = workingPlayer.GetComponentInChildren<MovementDriver>();
-                movementDriver.SetPushForce(_movementForce);
-                IntReference _health = Instantiate(health);
-                IntReference _maxHealth = Instantiate(maxHealth);
-                HealthDriver healthDriver = workingPlayer.GetComponentInChildren<HealthDriver>();
-                healthDriver.SetHealth(_health);
-                healthDriver.SetMaxHealth(_maxHealth);
+                // New Way
+                PlayerAsset _playerAsset = Instantiate(playerAsset);
+                _playerAsset.DeepCopy(playerAsset);
+                
+                CreationController creationController = workingPlayer.GetComponent<CreationController>();
+                creationController.Init(_playerAsset);
                 
                 // Sets up UI
                 Canvas workingUI;
@@ -73,8 +70,8 @@ namespace Systems
                 
                 // Sets up UI dependencies
                 DisplayHealth displayHealth = workingUIParent.GetComponentInChildren<DisplayHealth>();
-                displayHealth.SetHealth(_health);
-                displayHealth.SetMaxHealth(_maxHealth);
+                // displayHealth.SetHealth(_health); // TODO: Delete this after done
+                // displayHealth.SetMaxHealth(_maxHealth); // TODO: Delete this after done
 
                 // Organization purpose:
                 // Group players into one single game object.
@@ -86,7 +83,7 @@ namespace Systems
 
         protected virtual void SpawnLocation(GameObject player, int playerNum)
         {
-            player.transform.position = Vector3.right * playerNum + Vector3.up;
+            player.transform.position = Vector3.right * playerNum * 3 + Vector3.up;
         }
     }
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c0140b43a7b41448badb4b48f1c265, type: 3}
+  m_Name: PlayerAsset
+  m_EditorClassIdentifier: 
+  healthAsset: {fileID: 11400000, guid: eb820d8ed9f346ba58a3ce8b4c9582b8, type: 2}
+  maxHealthAsset: {fileID: 11400000, guid: 2c14d0fc2b3082844865724bc00d5406, type: 2}
+  pushForceAsset: {fileID: 11400000, guid: e54a3b31a212309d39806a081daec8a3, type: 2}
