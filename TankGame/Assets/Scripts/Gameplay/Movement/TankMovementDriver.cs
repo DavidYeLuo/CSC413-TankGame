@@ -1,4 +1,5 @@
 using System;
+using ScriptableObjects;
 using UI;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,9 +7,8 @@ using UnityEngine.XR;
 
 namespace Gameplay.Movement
 {
-    public class TankMovementDriver : Movement
+    public class TankMovementDriver : MovementDriver
     {
-        [SerializeField] private float pushForce;
         [SerializeField] private float maxSteerDeg;
         
         [SerializeField] private WheelCollider bLeftWheel;
@@ -31,23 +31,6 @@ namespace Gameplay.Movement
         }
 
         /**
-         * Old Movement
-         */
-        // public void Move(Vector2 direction)
-        // {
-        //     inputDirection = direction; // Used to display on inspector
-        //     velocity = rb.velocity;
-        //
-        //     if (velocity.magnitude > maxVelocity.GetValue()) return;
-        //     // force = transform.forward * direction.y + transform.right * direction.x;
-        //     // force *= forceMagnitude.GetValue();
-        //     // rb.AddForce(force * Time.deltaTime, ForceMode.Impulse);
-        //
-        //     force = Vector3.forward * direction.y + Vector3.right * direction.x;
-        //     rb.AddRelativeForce(Time.deltaTime * force * forceMagnitude.GetValue(), ForceMode.Impulse);
-        // }
-        //
-        /**
          * New Movement
          */
         public override void Move(Vector2 direction)
@@ -59,7 +42,7 @@ namespace Gameplay.Movement
 
         private void HandleMotor()
         {
-            torque = dir.y * pushForce * wheelRadius;
+            torque = dir.y * pushForceAsset.GetValue() * wheelRadius;
             
             // Back wheels
             bLeftWheel.motorTorque = torque;

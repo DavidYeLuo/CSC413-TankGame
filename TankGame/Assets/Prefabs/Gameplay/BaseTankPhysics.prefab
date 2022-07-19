@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8e97f703d309d37a59a948a54e5d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 90
+  pushForce: {fileID: 11400000, guid: e54a3b31a212309d39806a081daec8a3, type: 2}
   maxSteerDeg: 45
   bLeftWheel: {fileID: 7260654565291392166}
   fLeftWheel: {fileID: 5027953818070377105}

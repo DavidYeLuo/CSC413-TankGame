@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Gameplay.Movement;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -50,6 +51,16 @@ namespace Gameplay.Health
                 if(useAssets) maxHealthAsset.SetValue(value);
                 maxHealth = value;
             }
+        }
+
+        public void SetHealth(IntReference asset)
+        {
+            healthAsset = asset;
+        }
+
+        public void SetMaxHealth(IntReference asset)
+        {
+            maxHealthAsset = asset;
         }
 
         protected void SetHealth(int hp)

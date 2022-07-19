@@ -1,6 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.Camera;
+using Gameplay.Health;
+using Gameplay.Movement;
+using ScriptableObjects;
+using UI.Health;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // TODO: This is currently a temporary solution to adding a camera to a game object.
@@ -11,6 +16,12 @@ namespace Systems.CameraSystem
     {
         [SerializeField] private int numOfPlayers;
         [SerializeField] private GameObject playerPrefab;
+
+        [Header("Player Initial State")] 
+        [SerializeField] private FloatReference movementForce; // aka pushForce or movement impulse
+
+        [SerializeField] private IntReference health;
+        [SerializeField] private IntReference maxHealth;
         
         [Header("UI")]
         [SerializeField] private List<Canvas> uiPrefabs;
@@ -35,6 +46,17 @@ namespace Systems.CameraSystem
                 Camera workingCamera = cameraList[i];
                 CameraHelperClass.AttachCamera(workingCamera, cameraLocation);
                 
+                // Sets up player initial state and also link up dependencies
+                // Would be nice if there is a better way to handle this...
+                FloatReference _movementForce = Instantiate(movementForce);
+                MovementDriver movementDriver = workingPlayer.GetComponentInChildren<MovementDriver>();
+                movementDriver.SetPushForce(_movementForce);
+                IntReference _health = Instantiate(health);
+                IntReference _maxHealth = Instantiate(maxHealth);
+                HealthDriver healthDriver = workingPlayer.GetComponentInChildren<HealthDriver>();
+                healthDriver.SetHealth(_health);
+                healthDriver.SetMaxHealth(_maxHealth);
+                
                 // Sets up UI
                 Canvas workingUI;
                 GameObject workingUIParent = new GameObject(String.Format("UI_Player_{0}", i));
@@ -45,8 +67,14 @@ namespace Systems.CameraSystem
                     workingUI.planeDistance = 1;
                     workingUI.worldCamera = workingCamera;
                     
+                    // Organization purpose
                     workingUI.transform.SetParent(workingUIParent.transform);
                 }
+                
+                // Sets up UI dependencies
+                DisplayHealth displayHealth = workingUIParent.GetComponentInChildren<DisplayHealth>();
+                displayHealth.SetHealth(_health);
+                displayHealth.SetMaxHealth(_maxHealth);
 
                 // Organization purpose:
                 // Group players into one single game object.
