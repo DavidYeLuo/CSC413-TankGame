@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Gameplay.Camera;
 using UnityEngine;
@@ -10,25 +11,48 @@ namespace Systems.CameraSystem
     {
         [SerializeField] private int numOfPlayers;
         [SerializeField] private GameObject playerPrefab;
+        
+        [Header("UI")]
+        [SerializeField] private List<Canvas> uiPrefabs;
 
         private void Start()
         {
-            GameObject playerList = new GameObject("Players"); // For organization purpose
+            GameObject playerParent = new GameObject("Players"); // For organization purpose
+            GameObject uiParent = new GameObject("UIs");
+            
             List<Camera> cameraList = CameraHelperClass.GetNewCameras(numOfPlayers);
             
             for (int i = 0; i < numOfPlayers; i++)
             {
+                // Creates a new player
                 GameObject workingPlayer = Instantiate(playerPrefab);
+                
+                // Sets players to their location
                 SpawnLocation(workingPlayer, i);
                 
+                // Attaching Camera
                 CameraLocation cameraLocation = workingPlayer.GetComponentInChildren<CameraLocation>();
                 Camera workingCamera = cameraList[i];
                 CameraHelperClass.AttachCamera(workingCamera, cameraLocation);
                 
+                // Sets up UI
+                Canvas workingUI;
+                GameObject workingUIParent = new GameObject(String.Format("UI_Player_{0}", i));
+                foreach (Canvas ui in uiPrefabs)
+                {
+                    workingUI = Instantiate(ui);
+                    workingUI.renderMode = RenderMode.ScreenSpaceCamera;
+                    workingUI.planeDistance = 1;
+                    workingUI.worldCamera = workingCamera;
+                    
+                    workingUI.transform.SetParent(workingUIParent.transform);
+                }
+
                 // Organization purpose:
                 // Group players into one single game object.
                 // Less clutter in the inspector.
-                workingPlayer.transform.SetParent(playerList.transform);
+                workingPlayer.transform.SetParent(playerParent.transform);
+                workingUIParent.transform.SetParent(uiParent.transform);
             }
         }
 

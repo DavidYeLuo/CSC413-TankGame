@@ -355,6 +355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenTank
       objectReference: {fileID: 0}
+    - target: {fileID: 5754529090402705996, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5754529090402705997, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -924,7 +928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1429675341
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1280,11 +1284,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1925774977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 997294386720526247, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
-  m_PrefabInstance: {fileID: 459193791}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1941001961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,8 +1313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a900b16223559e10485151e87ad7ed71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1429675342}
-  cameraLocation: {fileID: 1925774977}
+  numOfPlayers: 2
+  playerPrefab: {fileID: 5754529090402705996, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
+  uiPrefabs:
+  - {fileID: 7795209816583840272, guid: 0e10983fa4e118be9a95acbdabb38adc, type: 3}
 --- !u!4 &1941001963
 Transform:
   m_ObjectHideFlags: 0
