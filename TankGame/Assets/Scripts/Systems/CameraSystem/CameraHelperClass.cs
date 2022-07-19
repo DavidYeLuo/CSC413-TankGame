@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using Gameplay.Camera;
+using UnityEngine;
+
+namespace Systems.CameraSystem
+{
+    public static class CameraHelperClass
+    {
+        public static List<Camera> GetNewCamera(int numberOfPlayers)
+        {
+            List<Camera> list = new List<Camera>();
+
+            for (int i = 1; i <= numberOfPlayers; i++)
+            {
+                Camera workingCamera = _GetNewCamera();
+                _InitViewport(workingCamera, numberOfPlayers, i);
+                
+                list.Add(workingCamera);
+            }
+            return list;
+        }
+
+        public static void AttachCamera(Camera from, GameObject to)
+        {
+            // Developer warning
+            if(to.GetComponent<CameraLocation>() == null) 
+                Debug.Log("CamInstantiator: camera location isn't a type CameraLocation");
+        
+            // Sets the camera's transform to be the same as the location's transform.
+            from.transform.position = to.transform.position;
+            from.transform.rotation = to.transform.rotation;
+        
+            // Attach the camera to the cameraLocation gameObject
+            from.transform.SetParent(to.transform);
+        }
+
+        private static Camera _GetNewCamera()
+        {
+            return new GameObject("Camera").AddComponent<Camera>();
+        }
+
+        private static void _InitViewport(Camera camera, int numOfPlayers, int playerNum)
+        {
+            float x;
+            float y;
+            float width;
+            float height;
+            
+            switch (numOfPlayers)
+            {
+                case 1:
+                    return;
+                case 2:
+                    width = 1; // Full Width
+                    height = 1f / numOfPlayers; // Half height
+                    x = 0;
+                    y = height * (numOfPlayers - playerNum);
+                    break;
+                default:
+                    throw new Exception("ERROR! There are more camera than we can support!");
+            }
+            camera.rect = new Rect(x, y, width, height);
+        }
+    }
+}
