@@ -1,9 +1,6 @@
-using System;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
-namespace Gameplay.Movement
+namespace Gameplay.Movement.Bullet
 {
     /**
      * This class only job is to move the object forward by pushing it with force.

@@ -1,8 +1,7 @@
-using System;
 using Gameplay.Movement.Interfaces;
 using UnityEngine;
 
-namespace Gameplay.Movement
+namespace Gameplay.Movement.Collision
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(Collider))]

@@ -1,11 +1,7 @@
 using System;
-using ScriptableObjects;
-using UI;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.XR;
 
-namespace Gameplay.Movement
+namespace Gameplay.Movement.Tank
 {
     public class TankMovementDriver : MovementDriver
     {
