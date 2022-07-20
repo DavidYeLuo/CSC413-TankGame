@@ -5,46 +5,20 @@ using UnityEngine;
 
 namespace Systems.PlayerCreation
 {
-    public class CreationController : MonoBehaviour
+    [RequireComponent(typeof(PlayerCreationDriver))]
+    public class CreationController : MonoBehaviour, IInitPlayerAsset
     {
-        [SerializeField] private PlayerAsset playerAsset;
-        
-        private List<IRequirePlayerAsset> deviceControllers;
+        private PlayerCreationDriver driver;
 
-        public void Start()
+        // We use Awake because InitPlayer can be called before Start()
+        private void Awake()
         {
-            if (playerAsset != null)
-            {
-                Init(playerAsset);
-            }
+            driver = GetComponent<PlayerCreationDriver>();
         }
 
-        public void Init(PlayerAsset asset)
+        public void InitPlayer(PlayerAsset asset)
         {
-            playerAsset = asset;
-            
-            if (playerAsset == null)
-            {
-                throw new Exception("CreationController: Player asset is empty");
-            }
-            
-            deviceControllers = GetListOfReqInterfaces();
-
-            if (deviceControllers == null)
-            {
-                throw new Exception(String.Format("Player Asset: {0}, device controllers: {1}", playerAsset != null,
-                    deviceControllers != null));
-            }
-            
-            foreach (var deviceController in deviceControllers)
-            {
-                deviceController.GetPlayerAsset(playerAsset);
-            }
-        }
-
-        private List<IRequirePlayerAsset> GetListOfReqInterfaces()
-        {
-            return new List<IRequirePlayerAsset>(gameObject.GetComponentsInChildren<IRequirePlayerAsset>());
+            driver.Init(asset);
         }
     }
 }

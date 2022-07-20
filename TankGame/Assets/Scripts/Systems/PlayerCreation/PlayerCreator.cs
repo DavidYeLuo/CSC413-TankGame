@@ -48,8 +48,8 @@ namespace Systems.PlayerCreation
                 _playerAsset.DeepCopy(playerAsset);
                 
                 // Sets up dependencies
-                CreationController creationController = workingPlayer.GetComponent<CreationController>();
-                creationController.Init(_playerAsset);
+                IInitPlayerAsset creationController = workingPlayer.GetComponent<IInitPlayerAsset>();
+                creationController.InitPlayer(_playerAsset);
                 
                 // Sets up UI
                 Canvas workingUI;
@@ -64,7 +64,7 @@ namespace Systems.PlayerCreation
                     // Sets up dependencies
                     creationController = workingUI.GetComponent<CreationController>();
                     if(creationController != null)
-                        creationController.Init(_playerAsset);
+                        creationController.InitPlayer(_playerAsset);
 
                     // Organization purpose
                     workingUI.transform.SetParent(workingUIParent.transform);
