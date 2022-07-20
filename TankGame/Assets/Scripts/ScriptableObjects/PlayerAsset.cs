@@ -9,6 +9,7 @@ public class PlayerAsset : ScriptableObject
     [SerializeField] private IntReference healthAsset;
     [SerializeField] private IntReference maxHealthAsset;
     [SerializeField] private FloatReference pushForceAsset;
+    [SerializeField] private RenderTexture minimapAsset;
 
     public void DeepCopy(PlayerAsset asset)
     {
@@ -16,6 +17,9 @@ public class PlayerAsset : ScriptableObject
         SetHealthAsset(Instantiate(healthAsset));
         SetMaxHealthAsset(Instantiate(maxHealthAsset));
         SetPushForceAsset(Instantiate(pushForceAsset));
+
+        minimapAsset = new RenderTexture(asset.minimapAsset.width, asset.minimapAsset.height, asset.minimapAsset.depth);
+        minimapAsset.Create();
     }
 
     public IntReference GetHealthAsset()
@@ -46,5 +50,15 @@ public class PlayerAsset : ScriptableObject
     private void SetPushForceAsset(FloatReference asset)
     {
         pushForceAsset = asset;
+    }
+
+    private void SetMinimap(RenderTexture asset)
+    {
+        minimapAsset = asset;
+    }
+
+    public RenderTexture GetMinimap()
+    {
+        return minimapAsset;
     }
 }
