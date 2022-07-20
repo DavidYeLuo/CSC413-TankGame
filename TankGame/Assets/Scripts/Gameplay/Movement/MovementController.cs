@@ -1,18 +1,19 @@
 using System;
-using InputSystem;
+using Gameplay.Movement.Tank;
+using Systems.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Gameplay.Movement
 {
-    [RequireComponent(typeof(MovementDriver))]
+    [RequireComponent(typeof(Movement))]
     public class MovementController : MonoBehaviour
     {
         [SerializeField] private bool shouldInjectControl;
 
         private InputAction moveControl;
             
-        private MovementDriver driver;
+        private Movement driver;
 
         private void Start()
         {
@@ -43,7 +44,6 @@ namespace Gameplay.Movement
 
         public void Move(Vector2 direction)
         {
-            if (direction == null) return;
             driver.Move(direction);
         }
     }

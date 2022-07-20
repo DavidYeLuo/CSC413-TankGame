@@ -1,5 +1,5 @@
 using System;
-using InputSystem;
+using Systems.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,15 +14,15 @@ namespace Gameplay.Shooter
         [Tooltip("Must have a RigidBody component for this to work")]
         [SerializeField] private bool hasRecoil;
         [SerializeField] private float recoilForce;
+        [SerializeField] private Rigidbody forceToApplyTo;
 
         private InputAction shootControl;
-        private Rigidbody rb;
 
+        // TODO: Make sure that we properly inject control with this.
         private void Start()
         {
             shootControl = InputDriver.GetControls().Gameplay.Fire;
             shootControl.performed += shoot;
-            rb = GetComponent<Rigidbody>();
         }
 
         private void OnEnable()
@@ -40,9 +40,9 @@ namespace Gameplay.Shooter
         {
             if (hasRecoil)
             {
-                rb.AddForce(recoilForce * (-1) * transform.forward, ForceMode.Force);
+                forceToApplyTo.AddForce(recoilForce * (-1) * shootFrom.transform.forward, ForceMode.Force);
             }
-            GameObject.Instantiate(objectToShoot, shootFrom.transform.position, transform.rotation);
+            Instantiate(objectToShoot, shootFrom.transform.position, shootFrom.transform.rotation);
         }
     }
 }

@@ -1,11 +1,15 @@
 using System;
+using System.Collections.Generic;
+using Gameplay.Movement;
 using ScriptableObjects;
+using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 
 namespace Gameplay.Health
 {
-    public class HealthDriver : MonoBehaviour
+    public class HealthDriver : MonoBehaviour, IRequirePlayerAsset
     {
+        [SerializeField] private List<HealthController> controllers;
         [SerializeField] private int health;
         [SerializeField] private int maxHealth;
 
@@ -13,6 +17,14 @@ namespace Gameplay.Health
         [SerializeField] private bool useAssets;
         [SerializeField] private IntReference healthAsset;
         [SerializeField] private IntReference maxHealthAsset;
+
+        protected virtual void Start()
+        {
+            foreach (var controller in controllers)
+            {
+                controller.Init(this);
+            }
+        }
 
         // Ugly setter and getter but necessary for development
         private int _health
@@ -42,29 +54,65 @@ namespace Gameplay.Health
             }
         }
 
-        public void SetHealth(int hp)
+        public void SetHealth(IntReference asset)
+        {
+            healthAsset = asset;
+        }
+
+        public void SetMaxHealth(IntReference asset)
+        {
+            maxHealthAsset = asset;
+        }
+
+        protected void SetHealth(int hp)
         {
             _health = Validate(hp);
         }
 
-        public void AddHealth(int hp)
+        protected int GetHealth()
+        {
+            return _health;
+        }
+
+        protected int GetMaxHealth()
+        {
+            return _maxHealth;
+        }
+
+        protected void SetMaxHealth(int hp)
+        {
+            _maxHealth = hp;
+        }
+
+        private void AddHealth(int hp)
         {
             _health += Validate(hp);
         }
-
-        public void LoseHealth(int hp)
+        
+        private void LoseHealth(int hp)
         {
             _health -= Validate(hp);
-        }
-
-        public int GetHealth()
-        {
-            return health;
         }
 
         private int Validate(int value)
         {
             return Math.Clamp(value, 0, maxHealth);
+        }
+
+        public virtual void TakeDamage(int health)
+        {
+            LoseHealth(health);
+        }
+
+        public virtual void Heal(int health)
+        {
+            AddHealth(health);
+        }
+
+        public void GetPlayerAsset(PlayerAsset asset)
+        {
+            healthAsset = asset.GetHealthAsset();
+            maxHealthAsset = asset.GetMaxHealthAsset();
         }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "FloatReference")]
+    [CreateAssetMenu(menuName = "DataReference/FloatReference", fileName = "FloatReference")]
     public class FloatReference : ScriptableObject
     {
         public delegate void valueChanged();
@@ -13,10 +13,10 @@ namespace ScriptableObjects
         [SerializeField] private float initValue;
 
         /**
-     * Value persist when working with the editor.
-     * Doesn't matter for a built project but annoying in the developing process
-     * TODO: Removed OnEnable method on release
-     */
+         * Value persist when working with the editor.
+         * Doesn't matter for a built project but annoying in the developing process
+         * TODO: Removed OnEnable method on release
+         */
         public void OnEnable()
         {
             value = initValue;
