@@ -9,16 +9,41 @@ namespace Systems.PlayerCreation
     public class CreationController : MonoBehaviour, IInitPlayerAsset
     {
         private PlayerCreationDriver driver;
+        [SerializeField] private PlayerAsset playerAsset;
+        [SerializeField] private Camera camera;
 
         // We use Awake because InitPlayer can be called before Start()
-        private void Awake()
+        private void Start()
         {
-            driver = GetComponent<PlayerCreationDriver>();
+            Init(playerAsset);
+            InitCamera(camera);
+        }
+
+        private void Init(PlayerAsset asset)
+        {
+            if(driver == null)
+                driver = GetComponent<PlayerCreationDriver>();
+            driver.Init(asset);
+        }
+
+        private void Init(Camera cam)
+        {
+            if(driver == null)
+                driver = GetComponent<PlayerCreationDriver>();
+            if (cam == null) return; // Not all players have camera
+            driver.Init(cam);
         }
 
         public void InitPlayer(PlayerAsset asset)
         {
-            driver.Init(asset);
+            playerAsset = asset;
+            Init(playerAsset);
+        }
+
+        public void InitCamera(Camera cam)
+        {
+            camera = cam;
+            Init(camera);
         }
     }
 }

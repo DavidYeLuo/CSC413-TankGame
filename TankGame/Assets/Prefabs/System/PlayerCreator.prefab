@@ -49,3 +49,4 @@ MonoBehaviour:
   playerAsset: {fileID: 11400000, guid: aedbf336a4997a7e89012cb77368855d, type: 2}
   uiPrefabs:
   - {fileID: 7795209816583840272, guid: 0e10983fa4e118be9a95acbdabb38adc, type: 3}
+  - {fileID: 5723456987570899246, guid: 1b75f369d1ae3b3209936db35b92e8e5, type: 3}

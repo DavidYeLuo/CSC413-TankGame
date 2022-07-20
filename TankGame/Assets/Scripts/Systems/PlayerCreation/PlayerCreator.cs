@@ -33,14 +33,10 @@ namespace Systems.PlayerCreation
             {
                 // Creates a new player
                 GameObject workingPlayer = Instantiate(playerPrefab);
+                Camera workingCamera = cameraList[i];
                 
                 // Sets players to their location
                 SpawnLocation(workingPlayer, i);
-                
-                // Attaching Camera
-                CameraLocation cameraLocation = workingPlayer.GetComponentInChildren<CameraLocation>();
-                Camera workingCamera = cameraList[i];
-                CameraHelperClass.AttachCamera(workingCamera, cameraLocation);
                 
                 // Creating data for each player. (Have their own data)
                 // Preparing to set up dependencies.
@@ -48,23 +44,26 @@ namespace Systems.PlayerCreation
                 _playerAsset.DeepCopy(playerAsset);
                 
                 // Sets up dependencies
-                IInitPlayerAsset creationController = workingPlayer.GetComponent<IInitPlayerAsset>();
-                creationController.InitPlayer(_playerAsset);
+                IInitPlayerAsset playerInitializer = workingPlayer.GetComponent<IInitPlayerAsset>();
+                playerInitializer.InitPlayer(_playerAsset);
+                playerInitializer.InitCamera(workingCamera);
                 
-                // Sets up UI
+                // Sets up UI and dependencies
                 Canvas workingUI;
                 GameObject workingUIParent = new GameObject(String.Format("UI_Player_{0}", i));
                 foreach (Canvas ui in uiPrefabs)
                 {
+                    // Sets up UI so that it isn't too far(default)
                     workingUI = Instantiate(ui);
                     workingUI.renderMode = RenderMode.ScreenSpaceCamera;
                     workingUI.planeDistance = 1;
                     workingUI.worldCamera = workingCamera;
 
                     // Sets up dependencies
-                    creationController = workingUI.GetComponent<CreationController>();
-                    if(creationController != null)
-                        creationController.InitPlayer(_playerAsset);
+                    // UI isn't part of the player prefab so we must also initialize it separately.
+                    playerInitializer = workingUI.GetComponent<IInitPlayerAsset>();
+                    if(playerInitializer != null)
+                        playerInitializer.InitPlayer(_playerAsset);
 
                     // Organization purpose
                     workingUI.transform.SetParent(workingUIParent.transform);
