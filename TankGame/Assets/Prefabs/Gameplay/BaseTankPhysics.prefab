@@ -1143,6 +1143,7 @@ GameObject:
   - component: {fileID: 7367009409517282124}
   - component: {fileID: 3933376241662155701}
   - component: {fileID: 478421840417252717}
+  - component: {fileID: 6749791147349102913}
   m_Layer: 0
   m_Name: BaseTankPhysics
   m_TagString: Untagged
@@ -1197,7 +1198,7 @@ MonoBehaviour:
   - {fileID: 5578468665017295937}
   health: 10
   maxHealth: 10
-  useAssets: 0
+  useAssets: 1
   healthAsset: {fileID: 0}
   maxHealthAsset: {fileID: 0}
 --- !u!114 &3933376241662155701
@@ -1212,6 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9735220a03de6cea673a6fa361a2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAsset: {fileID: 11400000, guid: aedbf336a4997a7e89012cb77368855d, type: 2}
 --- !u!114 &478421840417252717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,4 +1226,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bfd6b6e68d48dc97e1d8f9e6ec6044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAsset: {fileID: 11400000, guid: aedbf336a4997a7e89012cb77368855d, type: 2}
+--- !u!114 &6749791147349102913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847920193221792839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fccd4b46c1624151a9bba16fb8320dce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
