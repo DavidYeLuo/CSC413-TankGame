@@ -7,7 +7,7 @@ namespace Systems.PlayerCreation
     public class CameraCreationController : MonoBehaviour, IInitCameraAsset
     {
         [SerializeField] private Camera camera;
-        private PlayerCreationDriver driver;
+        private CreationDriver driver;
 
         private void Start()
         {
@@ -17,7 +17,7 @@ namespace Systems.PlayerCreation
         private void Init(Camera cam)
         {
             if(driver == null)
-                driver = GetComponent<PlayerCreationDriver>();
+                driver = GetComponent<CreationDriver>();
             if (cam == null) return; // Not all players have camera
             driver.Init(cam);
         }

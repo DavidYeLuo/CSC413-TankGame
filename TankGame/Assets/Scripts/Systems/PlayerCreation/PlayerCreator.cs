@@ -46,8 +46,10 @@ namespace Systems.PlayerCreation
                 // Sets up dependencies
                 IInitPlayerAsset playerInitializer = workingPlayer.GetComponent<IInitPlayerAsset>();
                 IInitCameraAsset cameraInitializer = workingPlayer.GetComponent<IInitCameraAsset>();
+                IInitController controllerInitializer = workingPlayer.GetComponent<IInitController>();
                 playerInitializer.InitPlayer(_playerAsset);
                 cameraInitializer.InitCamera(workingCamera);
+                controllerInitializer.InitController();
                 
                 // Sets up UI and dependencies
                 Canvas workingUI;

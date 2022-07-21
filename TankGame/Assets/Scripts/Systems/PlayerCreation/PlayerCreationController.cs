@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace Systems.PlayerCreation
 {
-    [RequireComponent(typeof(PlayerCreationDriver))]
+    [RequireComponent(typeof(CreationDriver))]
     public class PlayerCreationController : MonoBehaviour, IInitPlayerAsset
     {
-        private PlayerCreationDriver driver;
+        private CreationDriver driver;
         [SerializeField] private PlayerAsset playerAsset;
 
         // We use Awake because InitPlayer can be called before Start()
@@ -20,7 +20,7 @@ namespace Systems.PlayerCreation
         private void Init(PlayerAsset asset)
         {
             if(driver == null)
-                driver = GetComponent<PlayerCreationDriver>();
+                driver = GetComponent<CreationDriver>();
             driver.Init(asset);
         }
 

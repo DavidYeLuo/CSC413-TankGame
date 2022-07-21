@@ -4,10 +4,11 @@ using Gameplay.Camera;
 using Systems.CameraSystem;
 using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Systems.PlayerCreation
 {
-    public class PlayerCreationDriver : MonoBehaviour
+    public class CreationDriver : MonoBehaviour
     {
         public virtual void Init(PlayerAsset asset)
         {
@@ -41,6 +42,26 @@ namespace Systems.PlayerCreation
             if (camLocation == null) return;
             CameraHelperClass.AttachCamera(cam, camLocation);
         }
+        public void Init(InputActionMap map)
+        {
+            if (map == null)
+            {
+                throw new Exception("InputCreationController: Player asset is empty");
+            }
+            
+            List<IRequireController> deviceControllers = GetListOfReqControllers();
+
+            if (deviceControllers == null)
+            {
+                throw new Exception(String.Format("Player Asset: {0}, device controllers: {1}", map != null,
+                    deviceControllers != null));
+            }
+            
+            foreach (var deviceController in deviceControllers)
+            {
+                deviceController.GetController(map);
+            }
+        }
 
         private CameraLocation GetCameraLocation()
         {
@@ -49,6 +70,10 @@ namespace Systems.PlayerCreation
         private List<IRequirePlayerAsset> GetListOfReqInterfaces()
         {
             return new List<IRequirePlayerAsset>(gameObject.GetComponentsInChildren<IRequirePlayerAsset>());
+        }
+        private List<IRequireController> GetListOfReqControllers()
+        {
+            return new List<IRequireController>(GetComponentsInChildren<IRequireController>());
         }
     }
 }
