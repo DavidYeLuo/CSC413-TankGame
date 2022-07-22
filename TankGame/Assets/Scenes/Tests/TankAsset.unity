@@ -676,8 +676,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 5754529090402705996, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
   inputDriver: {fileID: 864527456}
   playerCreator: {fileID: 1310313675}
-  player: {fileID: 0}
-  _input: {fileID: 0}
+  playerList: []
+  playerInputList: []
 --- !u!4 &810654412
 Transform:
   m_ObjectHideFlags: 0
@@ -1702,10 +1702,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2474489434848631473, guid: 22e06b086f41cfed89727f08f8cf5ecc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010633541159535292, guid: 22e06b086f41cfed89727f08f8cf5ecc, type: 3}
-      propertyPath: m_AllowJoining
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5651365466209820214}
   - component: {fileID: 7207872184249275623}
   m_Layer: 0
-  m_Name: DummyPlayer
+  m_Name: PlayerCamAndInputs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

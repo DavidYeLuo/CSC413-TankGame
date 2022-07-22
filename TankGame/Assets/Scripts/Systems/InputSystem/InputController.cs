@@ -49,10 +49,11 @@ namespace Systems.InputSystem
 
         private void Start()
         {
-            instance.driver = GetComponent<InputDriver>();
+            instance.driver = InputDriver.Instance;
             SwitchMode(UserMode.UI);
         }
 
+        // TODO: Make this a part of the driver class
         public static void SwitchMode(UserMode mode)
         {
             switch (mode)
