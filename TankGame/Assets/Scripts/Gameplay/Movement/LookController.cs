@@ -18,7 +18,7 @@ namespace Gameplay.Movement
 
         private void Start()
         {
-            driver = GetComponent<Rotator>();
+            if(driver == null) driver = GetComponent<Rotator>();
             if (moveControl == null) // By default: It will use the master control
             {
                 moveControl = InputDriver.GetControls().Gameplay.Look;
@@ -28,6 +28,7 @@ namespace Gameplay.Movement
 
         private void OnEnable()
         {
+            if (driver == null) driver = GetComponent<Rotator>();
             if (moveControl == null) return; // Needed since this is also called before start() 
             SubscribeLookAction();
         }

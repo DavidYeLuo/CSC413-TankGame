@@ -7,10 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6346505449549372500, guid: b64c0f45674ef017f8e1955d49d20ae4, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1378789351286536472}
     - target: {fileID: 8847920193221792838, guid: b64c0f45674ef017f8e1955d49d20ae4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -61,11 +57,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b64c0f45674ef017f8e1955d49d20ae4, type: 3}
---- !u!20 &1378789351286536472 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2752931570546446099, guid: b64c0f45674ef017f8e1955d49d20ae4, type: 3}
-  m_PrefabInstance: {fileID: 3825263838314853899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!146 &2270710018238684187 stripped
 WheelCollider:
   m_CorrespondingSourceObject: {fileID: 3068428585341479440, guid: b64c0f45674ef017f8e1955d49d20ae4, type: 3}

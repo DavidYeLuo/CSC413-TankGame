@@ -458,6 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToShoot: {fileID: 5542287116271034213, guid: 0209967fdd74ba12ab9436386b91d863, type: 3}
   shootFrom: {fileID: 6969461681619211952}
+  nameOfShootAction: Fire
   hasRecoil: 1
   recoilForce: 1000
   forceToApplyTo: {fileID: 3194386974981682315}
@@ -1367,7 +1368,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2752931570546446099}
 --- !u!114 &6732528538155503900
 MonoBehaviour:
   m_ObjectHideFlags: 0
