@@ -6,16 +6,18 @@ using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CreationDriver))]
 public class InputCreationController : MonoBehaviour, IInitController
 {
     [SerializeField] private string actionMapName;
+
+    private PlayerInput playerInput;
     
     [Header("Runtime Debug")]
     [SerializeField] private InputActionMap map;
     private void Init(InputActionMap map)
     {
+        if (map == null) throw new Exception("InputCreationController: map is null.");
         (GetComponent<CreationDriver>()).Init(map);
     }
 
@@ -27,7 +29,6 @@ public class InputCreationController : MonoBehaviour, IInitController
         // Since we need to access the variables we want through strings,
         // there is a chance of a misspelling error as a programmer.
         // Possible misspellings: actionMapName or actionName
-        PlayerInput playerInput = GetComponent<PlayerInput>();
         if (playerInput == null) throw new Exception("InputCreationController: Player InputController isn't found.");
         InputActionAsset inputAsset = playerInput.actions;
         if (inputAsset == null) throw new Exception("InputCreationController: Player InputActionAsset is null.");
@@ -38,8 +39,9 @@ public class InputCreationController : MonoBehaviour, IInitController
         return gameplayMap;
     }
 
-    public void InitController()
+    public void InitController(PlayerInput playerInput)
     {
+        this.playerInput = playerInput;
         Init(GetMap(this.actionMapName));
     }
 }

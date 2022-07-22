@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Systems.InputSystem
 {
@@ -12,12 +14,15 @@ namespace Systems.InputSystem
         [SerializeField] private UserMode mode;
 
         private static PlayerControls controls; // Other classes will use this
+        
+        private Dictionary<int, PlayerInput> playerInputDictionary;
 
         private void Awake()
         {
             if (instance == null)
             {
                 controls = new PlayerControls();
+                playerInputDictionary = new Dictionary<int, PlayerInput>();
                 instance = this;
             }
             else
@@ -36,10 +41,34 @@ namespace Systems.InputSystem
            controls.Disable(); 
         }
 
+        public void AddControl(int playerNum, PlayerInput input)
+        {
+            playerInputDictionary.Add(playerNum, input);
+        }
+
+        public void RemoveControl(int playerNum)
+        {
+            playerInputDictionary.Remove(playerNum);
+        }
+        public bool TryGetValue(int playerIndex, out PlayerInput input)
+        {
+            return playerInputDictionary.TryGetValue(playerIndex, out input);
+        }
+
         public static PlayerControls GetControls()
         {
             return controls;
         }
+        
+        public void EnablePlayerJoin()
+        {
+            PlayerInputManager.instance.EnableJoining();
+        }
+        public void DisablePlayerJoin()
+        {
+            PlayerInputManager.instance.DisableJoining();
+        }
+
 
         public void SwitchToUIMode()
         {

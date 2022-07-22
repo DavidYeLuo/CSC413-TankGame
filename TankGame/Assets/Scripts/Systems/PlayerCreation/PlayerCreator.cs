@@ -13,10 +13,8 @@ using UnityEngine.tvOS;
 
 namespace Systems.PlayerCreation
 {
-    [RequireComponent(typeof(PlayerInputManager))]
     public class PlayerCreator : MonoBehaviour
     {
-        [SerializeField] private int numOfPlayers;
         [SerializeField] private GameObject playerPrefab;
 
         [Header("Player Initial State")]
@@ -29,35 +27,23 @@ namespace Systems.PlayerCreation
         private GameObject playerParent;
         private GameObject playerUIParent;
 
-        private void OnEnable()
-        {
-            PlayerInputManager playerInputManager = PlayerInputManager.instance;
-            playerInputManager.onPlayerJoined += Init;
-        }
-
-        private void OnDisable()
-        {
-            PlayerInputManager playerInputManager = PlayerInputManager.instance;
-            playerInputManager.onPlayerJoined -= Init;
-            
-        }
-
-        private void Init(PlayerInput playerInput)
+        public GameObject Init(GameObject playerPrefab, PlayerInput playerInput)
         {
             // Creates a new player
-            GameObject workingPlayer = playerInput.gameObject;
+            GameObject workingPlayer = Instantiate(playerPrefab);
             Camera workingCamera = playerInput.camera;
             PlayerAsset _playerAsset = DeepCopyAsset(playerAsset);
             
-            InitializePlayer(workingPlayer, _playerAsset);
+            InitializePlayer(workingPlayer, _playerAsset, playerInput);
             InitializeUI(_playerAsset, workingCamera);
-            SpawnLocation(workingPlayer, playerInput.playerIndex); // Temp
+            AttachCameraToPlayer(workingPlayer, workingCamera);
+            // SpawnLocation(workingPlayer, playerInput.playerIndex); // Temp
 
             // Organization purpose
             if (playerParent == null) playerParent = new GameObject("Players");
             workingPlayer.transform.SetParent(playerParent.transform);
+            return workingPlayer;
         }
-        
         private PlayerAsset DeepCopyAsset(PlayerAsset asset)
         {
             PlayerAsset _playerAsset = Instantiate(playerAsset);
@@ -65,12 +51,12 @@ namespace Systems.PlayerCreation
             return _playerAsset;
         }
 
-        private void InitializePlayer(GameObject player, PlayerAsset asset)
+        private void InitializePlayer(GameObject player, PlayerAsset asset, PlayerInput playerInput)
         {
             IInitPlayerAsset playerInitializer = player.GetComponent<IInitPlayerAsset>();
             playerInitializer.InitPlayer(asset);
             IInitController controllerInitializer = player.GetComponent<IInitController>();
-            controllerInitializer.InitController();
+            controllerInitializer.InitController(playerInput);
         }
 
         /**
@@ -114,7 +100,7 @@ namespace Systems.PlayerCreation
         }
 
 
-        protected virtual void SpawnLocation(GameObject player, int playerNum)
+        public virtual void SpawnLocation(GameObject player, int playerNum)
         {
             player.transform.position = Vector3.right * playerNum * 3 + Vector3.up;
         }

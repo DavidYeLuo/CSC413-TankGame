@@ -4,6 +4,6 @@ namespace Systems.PlayerCreation.Interfaces
 {
     public interface IInitController
     {
-        public void InitController();
+        public void InitController(PlayerInput playerInput);
     }
 }
