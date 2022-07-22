@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay.Shooter
 {
+    // TODO: Separate this into driver/controller
     public class ShootObject : MonoBehaviour, IRequireController
     {
         [SerializeField] private GameObject objectToShoot;
@@ -14,7 +15,7 @@ namespace Gameplay.Shooter
 
         [Header("Control")] 
         [Tooltip("Action button for shooting. NOTE: Spelling matters.")]
-        [SerializeField] private string nameOfShootAction;
+        [SerializeField] private string nameOfFireAction;
         
         [Header("Recoil")]
         [Tooltip("Must have a RigidBody component for this to work")]
@@ -24,7 +25,6 @@ namespace Gameplay.Shooter
 
         private InputAction fireControl;
 
-        // TODO: Make sure that we properly inject control with this.
         private void Start()
         {
             if(fireControl == null)
@@ -66,7 +66,7 @@ namespace Gameplay.Shooter
         {
             if(fireControl != null)
                 UnsubscribeToFireEvent();
-            fireControl = InputActionHelper.GetInputAction(map, nameOfShootAction);
+            fireControl = InputActionHelper.GetInputAction(map, nameOfFireAction);
             SubscribeToFireEvent();
         }
     }
