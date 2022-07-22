@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
+    // TODO: Remove this class
     public class ModeSwitcher : MonoBehaviour
     {
         public void SwitchToGameplayMode()
