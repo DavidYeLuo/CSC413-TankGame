@@ -60,11 +60,6 @@ namespace Systems.PlayerCreation
             controllerInitializer.InitController(playerInput);
         }
 
-        /**
-         * Legacy: Just in case we need it in the future.
-         * Reason that we don't need it anymore:
-         * Unity's PlayerInput class already provide us a camera.
-         */
         private void AttachCameraToPlayer(GameObject player, Camera cam)
         {
             IInitCameraAsset cameraInitializer = player.GetComponent<IInitCameraAsset>(); 
