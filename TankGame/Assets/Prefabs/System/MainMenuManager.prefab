@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b5305074bccf8008a50491691d18d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemAsset: {fileID: 11400000, guid: 36d593613ed10fbf5b668d3e816a2835, type: 2}
   startPanel: {fileID: 0}
   inputDriver: {fileID: 3197356312058837161}
   currentPanel: {fileID: 0}

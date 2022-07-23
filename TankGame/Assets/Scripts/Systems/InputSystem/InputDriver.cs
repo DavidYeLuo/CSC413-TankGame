@@ -6,6 +6,7 @@ namespace Systems.InputSystem
 {
     public class InputDriver : MonoBehaviour
     {
+        public SystemAsset systemAsset;
         // Observer pattern
         public delegate void changeMode(UserMode _mode);
         public static event changeMode changeModeEvent;
@@ -34,7 +35,16 @@ namespace Systems.InputSystem
             if (instance == null)
             {
                 masterControl = new PlayerControls();
-                playerInputDictionary = new Dictionary<int, PlayerInput>();
+
+                var savedData = systemAsset.GetPlayerInputs();
+                if (savedData == null)
+                {
+                    playerInputDictionary = new Dictionary<int, PlayerInput>();
+                }
+                else
+                {
+                    playerInputDictionary = savedData;
+                }
                 instance = this;
             }
             else
@@ -106,6 +116,15 @@ namespace Systems.InputSystem
             
             if (changeModeEvent == null) return;
             changeModeEvent.Invoke(mode);
+        }
+
+        public void SavePlayersControl()
+        {
+            foreach (var input in playerInputDictionary.Values)
+            {
+                DontDestroyOnLoad(input);
+            }
+            systemAsset.SetPlayerInputs(playerInputDictionary);
         }
         
         // TODO: Do testing on locking cursor

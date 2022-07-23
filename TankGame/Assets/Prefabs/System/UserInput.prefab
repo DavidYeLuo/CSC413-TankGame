@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad255312b3143988c48bf22cfe33271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemAsset: {fileID: 11400000, guid: 36d593613ed10fbf5b668d3e816a2835, type: 2}
   mode: 0
 --- !u!114 &2474489434848631471
 MonoBehaviour:

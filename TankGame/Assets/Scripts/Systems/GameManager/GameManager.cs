@@ -27,6 +27,7 @@ namespace Systems.GameManager
 
         private void Start()
         {
+            return;
             // To simulate the UI Scene.
             StartCoroutine(LetPlayerJoinForSeconds(5f));
             StartCoroutine(TryToGetControllerAfterSeconds(6f));

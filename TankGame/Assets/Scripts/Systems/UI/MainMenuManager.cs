@@ -6,10 +6,12 @@ using UI;
 using UI.Interfaces;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] private SystemAsset systemAsset;
     [SerializeField] private Navigable startPanel;
     
     [Header("Driver")]
@@ -22,6 +24,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        systemAsset.SetPlayerInputs(null); // resets the playerinputs
         currentPanel = startPanel;
         currentPanel.gameObject.SetActive(true);
     }
@@ -36,6 +39,21 @@ public class MainMenuManager : MonoBehaviour
         currentPanel.Navigate(panel);
         previousPanel = currentPanel;
         currentPanel = panel;
+    }
+
+    public void SaveSystemAsset()
+    {
+        InputDriver.Instance.SavePlayersControl();
+    }
+
+    public void EnablePlayerJoin()
+    {
+        PlayerInputManager.instance.EnableJoining();
+    }
+
+    public void DisablePlayerJoin()
+    {
+        PlayerInputManager.instance.DisableJoining();
     }
 
     public void ExitApplication()
