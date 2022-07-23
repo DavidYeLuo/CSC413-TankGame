@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4bdc17cafa4a9884b1b08d42f00ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemAsset: {fileID: 11400000, guid: 36d593613ed10fbf5b668d3e816a2835, type: 2}
   playerPrefab: {fileID: 5754529090402705996, guid: d9fd4d81daecde5a7bcff1050b0f274f, type: 3}
   inputDriver: {fileID: 6004573258210256175}
   playerCreator: {fileID: 5908019398775537241}

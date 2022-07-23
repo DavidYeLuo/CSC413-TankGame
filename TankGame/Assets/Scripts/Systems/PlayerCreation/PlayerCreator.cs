@@ -15,10 +15,10 @@ namespace Systems.PlayerCreation
 {
     public class PlayerCreator : MonoBehaviour
     {
-        [SerializeField] private GameObject playerPrefab;
-
         [Header("Player Initial State")]
         [SerializeField] private PlayerAsset playerAsset;
+        private Vector3 spawnPosition;
+        private Quaternion spawnRotation;
         
         [Header("UI")]
         [SerializeField] private List<Canvas> uiPrefabs;
@@ -37,7 +37,8 @@ namespace Systems.PlayerCreation
             InitializePlayer(workingPlayer, _playerAsset, playerInput);
             InitializeUI(_playerAsset, workingCamera);
             AttachCameraToPlayer(workingPlayer, workingCamera);
-            // SpawnLocation(workingPlayer, playerInput.playerIndex); // Temp
+            SpawnPlayerAt(workingPlayer, spawnPosition);
+            SpawnPlayerWithOrientation(workingPlayer, spawnRotation);
 
             // Organization purpose
             if (playerParent == null) playerParent = new GameObject("Players");
@@ -99,10 +100,24 @@ namespace Systems.PlayerCreation
             workingUIParent.transform.SetParent(playerUIParent.transform);
         }
 
-
-        public virtual void SpawnLocation(GameObject player, int playerNum)
+        private void SpawnPlayerAt(GameObject player, Vector3 position)
         {
-            player.transform.position = Vector3.right * playerNum * 3 + Vector3.up;
+            player.transform.position = position;
+        }
+
+        private void SpawnPlayerWithOrientation(GameObject player, Quaternion rotation)
+        {
+            player.transform.rotation = rotation;
+        }
+
+        public void SetSpawnPosition(Vector3 position)
+        {
+            spawnPosition = position;
+        }
+
+        public void SetSpawnRotation(Quaternion rotation)
+        {
+            spawnRotation = rotation;
         }
         
         // Legacy Code
