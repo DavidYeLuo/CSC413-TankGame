@@ -17,27 +17,30 @@ namespace Systems.UI
         [Header("For Debug purpose")] 
         [SerializeField] private Navigable currentPanel;
         [SerializeField] private Navigable previousPanel;
-        private void Start()
+        protected virtual void Start()
         {
             systemAsset.SetPlayerInputs(null); // resets the playerinputs
             currentPanel = startPanel;
             currentPanel.gameObject.SetActive(true);
         }
         
-        public void GotoPreviousPanel()
+        public virtual void GotoPreviousPanel()
         {
             Navigate(previousPanel);
         }
-        public void Navigate(Navigable panel)
+        
+        public virtual void Navigate(Navigable panel)
         {
             currentPanel.Navigate(panel);
             previousPanel = currentPanel;
             currentPanel = panel;
         }
+        
         public virtual void SaveSystemAsset()
         {
-            InputDriver.Instance.SavePlayersControl();
+            inputDriver.SavePlayersControl();
         }
+        
         public virtual void EnablePlayerJoin()
         {
             PlayerInputManager.instance.EnableJoining();
