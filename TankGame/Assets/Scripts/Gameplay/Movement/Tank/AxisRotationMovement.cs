@@ -1,49 +1,36 @@
 using Systems.InputSystem;
+using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Gameplay.Movement.Tank
 {
-    public class AxisRotationMovement : Movement
+    public class AxisRotationMovement : LookDriver
     {
-        [Header("User Settings")] 
-        [SerializeField] private float horizontalSensitivity;
-        [SerializeField] private float verticalSensitivity;
         [Header("Developer Settings")]
         [SerializeField] private bool lockHorizontalRot;
         [SerializeField] private bool lockVerticalRot;
+        
+        [Header("TankComponents")]
         [SerializeField] private GameObject turret;
-        [SerializeField] private Rigidbody rb;
+        [SerializeField] private GameObject barrel;
+        [SerializeField] private Rigidbody turretRigidBody;
+        [SerializeField] private Rigidbody barrelRigidbody;
 
-        private InputAction lookControl;
-        private Vector3 lookRotation;
+        private Vector3 horizontalLookRotation;
+        private Vector3 verticalLookRotation;
 
-        private void Start()
+        public override void Look(Vector2 direction)
         {
-            lookControl = InputDriver.GetControls().Gameplay.Look;
-            lookControl.performed += OnLook;
-            lookControl.canceled += OnCancel;
-        }
+            if (direction == Vector2.zero) return;
+            
+            horizontalLookRotation = Vector3.zero;
+            verticalLookRotation = Vector3.zero;
+            horizontalLookRotation += Vector3.up * direction.x * horizontalSensitivity.GetValue();
+            verticalLookRotation += turret.transform.right * direction.y * -1 * verticalSensitivity.GetValue();
 
-        private void OnLook(InputAction.CallbackContext callback)
-        {
-            Move(callback.ReadValue<Vector2>());
-        }
-
-        private void OnCancel(InputAction.CallbackContext callback)
-        {
-            Move(Vector3.zero);
-        }
-
-        public override void Move(Vector2 direction)
-        {
-            lookRotation = Vector3.zero;
-            if(!lockHorizontalRot)
-                lookRotation += Vector3.up * direction.x * horizontalSensitivity;
-            if (!lockVerticalRot)
-                lookRotation += turret.transform.right * direction.y * -1 * verticalSensitivity;
-            if (lookRotation == Vector3.zero) return;
-            rb.AddTorque(lookRotation * Time.deltaTime, ForceMode.Impulse);
+            turretRigidBody.AddTorque(horizontalLookRotation * Time.deltaTime, ForceMode.Impulse);
+            barrelRigidbody.AddTorque(verticalLookRotation * Time.deltaTime, ForceMode.Impulse);
         }
     }
 }

@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 8563029188820609728}
   - component: {fileID: 7404617196536368158}
   - component: {fileID: 4047958777688138464}
-  - component: {fileID: 4922771323269704327}
+  - component: {fileID: 8900215799002750206}
   m_Layer: 0
   m_Name: Physics
   m_TagString: Untagged
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea56275fed5c4de2b8c8b3192f40b5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldInjectControl: 1
+  nameOfMoveAction: Move
 --- !u!114 &7404617196536368158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToShoot: {fileID: 5542287116271034213, guid: 0209967fdd74ba12ab9436386b91d863, type: 3}
   shootFrom: {fileID: 6969461681619211952}
+  nameOfFireAction: Fire
   hasRecoil: 1
   recoilForce: 1000
   forceToApplyTo: {fileID: 3194386974981682315}
@@ -473,13 +474,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac79918e1940a2c15b63ab5487965e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSensitivity: 3
-  verticalSensitivity: 0
+  horizontalSensitivity: {fileID: 0}
+  verticalSensitivity: {fileID: 0}
   lockHorizontalRot: 0
-  lockVerticalRot: 1
+  lockVerticalRot: 0
   turret: {fileID: 771073510144250932}
-  rb: {fileID: 3418267998945963084}
---- !u!114 &4922771323269704327
+  barrel: {fileID: 8890023727066157}
+  turretRigidBody: {fileID: 3418267998945963084}
+  barrelRigidbody: {fileID: 7238713114990129438}
+--- !u!114 &8900215799002750206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,15 +491,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1057125474450156019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac79918e1940a2c15b63ab5487965e9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c6a03087e1c4f98b88ace386d374dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSensitivity: 0
-  verticalSensitivity: 1
-  lockHorizontalRot: 1
-  lockVerticalRot: 0
-  turret: {fileID: 8890023727066157}
-  rb: {fileID: 7238713114990129438}
+  nameOfLookAction: Look
 --- !u!1 &1219616722805965741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1141,8 @@ GameObject:
   - component: {fileID: 7367009409517282124}
   - component: {fileID: 3933376241662155701}
   - component: {fileID: 478421840417252717}
+  - component: {fileID: 6749791147349102913}
+  - component: {fileID: 6732528538155503900}
   m_Layer: 0
   m_Name: BaseTankPhysics
   m_TagString: Untagged
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   - {fileID: 5578468665017295937}
   health: 10
   maxHealth: 10
-  useAssets: 0
+  useAssets: 1
   healthAsset: {fileID: 0}
   maxHealthAsset: {fileID: 0}
 --- !u!114 &3933376241662155701
@@ -1212,6 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9735220a03de6cea673a6fa361a2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAsset: {fileID: 11400000, guid: aedbf336a4997a7e89012cb77368855d, type: 2}
 --- !u!114 &478421840417252717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,4 +1225,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bfd6b6e68d48dc97e1d8f9e6ec6044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAsset: {fileID: 11400000, guid: aedbf336a4997a7e89012cb77368855d, type: 2}
+--- !u!114 &6749791147349102913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847920193221792839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fccd4b46c1624151a9bba16fb8320dce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+--- !u!114 &6732528538155503900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847920193221792839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af604cb99499d7be3bc10240575fa704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionMapName: Gameplay
+  map:
+    m_Name: Map
+    m_Id: feaf0e3f-92ec-486b-a722-23ef4caee75d
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []

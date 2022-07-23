@@ -11,6 +11,11 @@ namespace UI
             InputDriver.changeModeEvent += OnModeChange;
         }
 
+        private void OnDestroy()
+        {
+            InputDriver.changeModeEvent -= OnModeChange;
+        }
+
         private void OnModeChange(UserMode mode)
         {
             if (mode == UserMode.UI)
