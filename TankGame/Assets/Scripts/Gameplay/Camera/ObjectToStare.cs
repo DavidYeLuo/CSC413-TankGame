@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Gameplay.Camera
 {
+    /**
+     * Obsolete: Planned to use it in ThirdPersonCamera.cs but the project no longer uses it.
+     */
     public class ObjectToStare : MonoBehaviour, IObjTransform
     {
         [SerializeField] private GameObject objectLocation;
