@@ -6,6 +6,7 @@ using UI;
 using UI.Interfaces;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -36,7 +37,16 @@ public class MainMenuManager : MonoBehaviour
         previousPanel = currentPanel;
         currentPanel = panel;
     }
-    
+
+    public void ExitApplication()
+    {
+        Application.Quit();
+    }
+
+    public void LoadScene(String scene)
+    {
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
     
     public void EnterGameplay()
     {

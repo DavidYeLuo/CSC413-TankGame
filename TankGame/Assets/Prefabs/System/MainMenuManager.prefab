@@ -46,9 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPanel: {fileID: 0}
-  mainMenu: {fileID: 0}
-  settingsMenu: {fileID: 0}
-  inputDriver: {fileID: 0}
+  inputDriver: {fileID: 3197356312058837161}
   currentPanel: {fileID: 0}
   previousPanel: {fileID: 0}
 --- !u!1001 &1011178684465455623
@@ -108,6 +106,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22e06b086f41cfed89727f08f8cf5ecc, type: 3}
+--- !u!114 &3197356312058837161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2474489434848631470, guid: 22e06b086f41cfed89727f08f8cf5ecc, type: 3}
+  m_PrefabInstance: {fileID: 1011178684465455623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad255312b3143988c48bf22cfe33271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3197356312058837174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2474489434848631473, guid: 22e06b086f41cfed89727f08f8cf5ecc, type: 3}
