@@ -402,6 +402,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3363803190441306907}
     m_Modifications:
+    - target: {fileID: 20782157709070912, guid: c27a79c7951a876a185ddad885225053, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8296762880641402302}
+    - target: {fileID: 20782157709070912, guid: c27a79c7951a876a185ddad885225053, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitApplication
+      objectReference: {fileID: 0}
+    - target: {fileID: 20782157709070912, guid: c27a79c7951a876a185ddad885225053, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Systems.UI.MainMenuManagerDriver, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 20782157709070913, guid: c27a79c7951a876a185ddad885225053, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -674,7 +686,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UI.Navigable, Assembly-CSharp
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3737379806387165245, guid: c27a79c7951a876a185ddad885225053, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c27a79c7951a876a185ddad885225053, type: 3}
 --- !u!224 &1655544262558442686 stripped
 RectTransform:
@@ -942,7 +955,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1676605482123955517, guid: cc73d6e929562b9f88fc30c47b645f02, type: 3}
+    - target: {fileID: 2516601392112249443, guid: cc73d6e929562b9f88fc30c47b645f02, type: 3}
       propertyPath: startPanel
       value: 
       objectReference: {fileID: 4019661311714458515}
@@ -968,3 +981,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 525041850758670249, guid: cc73d6e929562b9f88fc30c47b645f02, type: 3}
   m_PrefabInstance: {fileID: 5893178091875708893}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8296762880641402302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2516601392112249443, guid: cc73d6e929562b9f88fc30c47b645f02, type: 3}
+  m_PrefabInstance: {fileID: 5893178091875708893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3847b15d9c04f3d95e9a3cbcdaa540e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

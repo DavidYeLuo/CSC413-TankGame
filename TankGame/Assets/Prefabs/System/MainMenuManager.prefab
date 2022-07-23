@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525041850758670249}
   - component: {fileID: 1676605482123955517}
+  - component: {fileID: 2516601392112249443}
   m_Layer: 0
   m_Name: MainMenuManager
   m_TagString: Untagged
@@ -43,6 +44,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27b5305074bccf8008a50491691d18d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerDriver: {fileID: 2516601392112249443}
+  currentPanel: {fileID: 0}
+  previousPanel: {fileID: 0}
+--- !u!114 &2516601392112249443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2710966465736223058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3847b15d9c04f3d95e9a3cbcdaa540e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   systemAsset: {fileID: 11400000, guid: 36d593613ed10fbf5b668d3e816a2835, type: 2}
