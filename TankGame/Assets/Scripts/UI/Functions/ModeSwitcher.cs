@@ -1,7 +1,7 @@
 using Systems.InputSystem;
 using UnityEngine;
 
-namespace UI
+namespace UI.Functions
 {
     // TODO: Remove this class
     public class ModeSwitcher : MonoBehaviour

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI
+namespace UI.Functions
 {
     public class ExitApplication : MonoBehaviour
     {

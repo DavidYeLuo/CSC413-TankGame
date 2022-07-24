@@ -1,12 +1,11 @@
 using Systems.InputSystem;
-using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-namespace Systems.UI
+namespace UI.Functions
 {
-    public class MainMenuManagerDriver : MonoBehaviour
+    public class FunctionDriver : MonoBehaviour
     {
         [SerializeField] private SystemAsset systemAsset;
         [SerializeField] private Navigable startPanel;
