@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Systems.GameManager.Interfaces;
 using Systems.InputSystem;
 using Systems.PlayerCreation;
 using UnityEngine;
@@ -9,7 +10,7 @@ using UnityEngine.InputSystem;
 
 namespace Systems.GameManager
 {
-    public class GameManager : MonoBehaviour
+    public class GameManagerDriver : MonoBehaviour, ICreatePlayers
     {
         [SerializeField] private SystemAsset systemAsset;
         // TODO: Make a list of player prefabs one mapping to each player.
@@ -26,7 +27,7 @@ namespace Systems.GameManager
         [SerializeField] private List<GameObject> playerList;
         [SerializeField] private List<PlayerInput> playerInputList;
 
-        private void Start()
+        public void CreatePlayers()
         {
             // Loads data from systemAsset and use them.
             Dictionary<int, PlayerInput> playerInputs = systemAsset.GetPlayerInputs();
