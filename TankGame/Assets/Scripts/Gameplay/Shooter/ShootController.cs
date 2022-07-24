@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Shooter.Interfaces;
 using Systems.InputSystem;
 using Systems.PlayerCreation.Helpers;
 using Systems.PlayerCreation.Interfaces;
@@ -7,21 +8,13 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay.Shooter
 {
-    // TODO: Separate this into driver/controller
-    public class ShootObject : MonoBehaviour, IRequireController
+    public class ShootController : MonoBehaviour, IRequireController, IShootable
     {
-        [SerializeField] private GameObject objectToShoot;
-        [SerializeField] private GameObject shootFrom;
-
         [Header("Control")] 
         [Tooltip("Action button for shooting. NOTE: Spelling matters.")]
         [SerializeField] private string nameOfFireAction;
-        
-        [Header("Recoil")]
-        [Tooltip("Must have a RigidBody component for this to work")]
-        [SerializeField] private bool hasRecoil;
-        [SerializeField] private float recoilForce;
-        [SerializeField] private Rigidbody forceToApplyTo;
+
+        [SerializeField] private ShootDriver driver;
 
         private InputAction fireControl;
 
@@ -34,12 +27,12 @@ namespace Gameplay.Shooter
 
         private void SubscribeToFireEvent()
         {
-            fireControl.performed += Shoot;
+            fireControl.performed += OnShoot;
         }
 
         private void UnsubscribeToFireEvent()
         {
-            fireControl.performed -= Shoot;
+            fireControl.performed -= OnShoot;
         }
 
         private void OnEnable()
@@ -53,13 +46,9 @@ namespace Gameplay.Shooter
             UnsubscribeToFireEvent();
         }
 
-        public void Shoot(InputAction.CallbackContext callback)
+        private void OnShoot(InputAction.CallbackContext callback)
         {
-            if (hasRecoil)
-            {
-                forceToApplyTo.AddForce(recoilForce * (-1) * shootFrom.transform.forward, ForceMode.Force);
-            }
-            Instantiate(objectToShoot, shootFrom.transform.position, shootFrom.transform.rotation);
+            driver.Shoot();
         }
 
         public void GetController(InputActionMap map)
@@ -68,6 +57,11 @@ namespace Gameplay.Shooter
                 UnsubscribeToFireEvent();
             fireControl = InputActionHelper.GetInputAction(map, nameOfFireAction);
             SubscribeToFireEvent();
+        }
+
+        public void Shoot()
+        {
+            driver.Shoot();
         }
     }
 }

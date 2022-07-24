@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8706231777883364329}
   - component: {fileID: 5578468665017295937}
   - component: {fileID: 291307115698748383}
+  - component: {fileID: 7802033608629624349}
   m_Layer: 0
   m_Name: TankFree_Canon
   m_TagString: Untagged
@@ -127,6 +128,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5e15ff0f5f4ca99dd6c2c25adc0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7802033608629624349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890023727066157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc634a797e852e5e7a46829a52e538ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfFireAction: Fire
+  driver: {fileID: 7815837785079013174}
 --- !u!1 &678607438368431061
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +395,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1542546335407783425}
   - component: {fileID: 8563029188820609728}
-  - component: {fileID: 7404617196536368158}
   - component: {fileID: 4047958777688138464}
   - component: {fileID: 8900215799002750206}
   m_Layer: 0
@@ -426,24 +440,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfMoveAction: Move
   driver: {fileID: 2991027069258512083}
---- !u!114 &7404617196536368158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057125474450156019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc634a797e852e5e7a46829a52e538ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToShoot: {fileID: 5542287116271034213, guid: 0209967fdd74ba12ab9436386b91d863, type: 3}
-  shootFrom: {fileID: 6969461681619211952}
-  nameOfFireAction: Fire
-  hasRecoil: 1
-  recoilForce: 1000
-  forceToApplyTo: {fileID: 3194386974981682315}
 --- !u!114 &4047958777688138464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,8 +454,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSensitivity: {fileID: 0}
   verticalSensitivity: {fileID: 0}
-  lockHorizontalRot: 0
-  lockVerticalRot: 0
   turret: {fileID: 771073510144250932}
   barrel: {fileID: 8890023727066157}
   turretRigidBody: {fileID: 3418267998945963084}
@@ -1065,6 +1059,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimapAsset: {fileID: 0}
+--- !u!1 &6184264203412144788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3471166707257255837}
+  - component: {fileID: 7815837785079013174}
+  m_Layer: 0
+  m_Name: ShootDriver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3471166707257255837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184264203412144788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1827424184191557354}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7815837785079013174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184264203412144788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bf95ddacdd493b8a087531417ae2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToShoot: {fileID: 5542287116271034213, guid: 0209967fdd74ba12ab9436386b91d863, type: 3}
+  shootFrom: {fileID: 6969461681619211952}
+  hasRecoil: 1
+  recoilForce: 1000
+  forceToApplyTo: {fileID: 7238713114990129438}
 --- !u!1 &6969461681619211952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,6 +1169,7 @@ Transform:
   m_Children:
   - {fileID: 1648738005449362203}
   - {fileID: 3504565104316427260}
+  - {fileID: 3471166707257255837}
   m_Father: {fileID: 8847920193221792838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
