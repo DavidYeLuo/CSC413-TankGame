@@ -35,12 +35,13 @@ namespace Systems.GameManager
             
             foreach (var keyValuePair in playerInputs)
             {
+                // TODO: Use swap method between system and player data to create customized player data.
                 playerCreator.SetSpawnPosition(new Vector3(keyValuePair.Key * 20,5,keyValuePair.Key * 20));
                 playerCreator.SetSpawnRotation(Quaternion.identity); // Default rotation
                 playerList.Add(playerCreator.Init(playerPrefab, keyValuePair.Value));
             }
             
-            // For Debuggiing
+            // For Debugging
             playerInputList = systemAsset.GetPlayerInputs().Values.ToList();
         }
     }
