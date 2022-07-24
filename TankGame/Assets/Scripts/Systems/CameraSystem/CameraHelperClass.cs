@@ -43,6 +43,9 @@ namespace Systems.CameraSystem
             return new GameObject("Camera").AddComponent<Camera>();
         }
 
+        /**
+         * Obsolete: Unity has their own way to create split screen.
+         */
         private static void _InitViewport(Camera camera, int numOfPlayers, int playerNum)
         {
             float x;
