@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Gameplay.Health.Interfaces;
 using Gameplay.Movement;
 using ScriptableObjects;
 using Systems.PlayerCreation.Interfaces;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Gameplay.Health
 {
-    public class HealthDriver : MonoBehaviour, IRequirePlayerAsset
+    public class HealthDriver : MonoBehaviour, IRequirePlayerAsset, IHealResponse, ITakeDamageResponse
     {
         [SerializeField] private int health;
         [SerializeField] private int maxHealth;
