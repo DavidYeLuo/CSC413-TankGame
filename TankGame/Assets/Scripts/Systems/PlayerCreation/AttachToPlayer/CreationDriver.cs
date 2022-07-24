@@ -6,7 +6,7 @@ using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Systems.PlayerCreation
+namespace Systems.PlayerCreation.AttachToPlayer
 {
     public class CreationDriver : MonoBehaviour
     {

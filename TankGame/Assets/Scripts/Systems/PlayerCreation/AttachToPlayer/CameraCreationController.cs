@@ -1,8 +1,7 @@
-using System;
 using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 
-namespace Systems.PlayerCreation
+namespace Systems.PlayerCreation.AttachToPlayer
 {
     public class CameraCreationController : MonoBehaviour, IInitCameraAsset
     {

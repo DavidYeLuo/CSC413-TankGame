@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
 using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 
-namespace Systems.PlayerCreation
+namespace Systems.PlayerCreation.AttachToPlayer
 {
     [RequireComponent(typeof(CreationDriver))]
     public class PlayerCreationController : MonoBehaviour, IInitPlayerAsset
