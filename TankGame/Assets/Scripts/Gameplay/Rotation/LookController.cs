@@ -1,15 +1,16 @@
+using Gameplay.Movement.Interfaces;
+using Gameplay.Rotation.Interfaces;
 using Systems.InputSystem;
 using Systems.PlayerCreation.Helpers;
 using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Gameplay.Movement
+namespace Gameplay.Rotation
 {
     [RequireComponent(typeof(Rotator))]
-    public class LookController : MonoBehaviour, IRequireController
+    public class LookController : MonoBehaviour, IRequireController, IRotateable
     {
-        
         [Tooltip("Action button for look. NOTE: Spelling matters.")]
         [SerializeField] private string nameOfLookAction;
         private InputAction moveControl;

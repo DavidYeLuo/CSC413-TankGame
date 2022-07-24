@@ -1,7 +1,7 @@
 using Gameplay.Movement.Interfaces;
 using UnityEngine;
 
-namespace Gameplay.Movement.Collision
+namespace Gameplay.Collision
 {
     public class PushOnTrigger : MonoBehaviour
     {

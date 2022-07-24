@@ -2,7 +2,7 @@ using ScriptableObjects;
 using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
 
-namespace Gameplay.Movement
+namespace Gameplay.Rotation
 {
     public class LookDriver : Rotator, IRequirePlayerAsset
     {

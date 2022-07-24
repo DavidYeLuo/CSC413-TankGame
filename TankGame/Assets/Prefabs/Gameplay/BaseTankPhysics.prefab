@@ -379,7 +379,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542546335407783425}
-  - component: {fileID: 8081652348702991800}
   - component: {fileID: 8563029188820609728}
   - component: {fileID: 7404617196536368158}
   - component: {fileID: 4047958777688138464}
@@ -413,26 +412,6 @@ Transform:
   m_Father: {fileID: 8847920193221792838}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8081652348702991800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057125474450156019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c8e97f703d309d37a59a948a54e5d4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushForceAsset: {fileID: 0}
-  maxSteerDeg: 45
-  bLeftWheel: {fileID: 7260654565291392166}
-  fLeftWheel: {fileID: 5027953818070377105}
-  bRightWheel: {fileID: 8292403459229204466}
-  fRightWheel: {fileID: 3068428585341479440}
-  torque: 0
-  steeringAngle: 0
 --- !u!114 &8563029188820609728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfMoveAction: Move
+  driver: {fileID: 2991027069258512083}
 --- !u!114 &7404617196536368158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +568,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5e15ff0f5f4ca99dd6c2c25adc0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1682412158629652606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3504565104316427260}
+  - component: {fileID: 2991027069258512083}
+  m_Layer: 0
+  m_Name: MovementDriver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3504565104316427260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682412158629652606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1827424184191557354}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2991027069258512083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682412158629652606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8e97f703d309d37a59a948a54e5d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForceAsset: {fileID: 0}
+  maxSteerDeg: 45
+  bLeftWheel: {fileID: 7260654565291392166}
+  fLeftWheel: {fileID: 5027953818070377105}
+  bRightWheel: {fileID: 8292403459229204466}
+  fRightWheel: {fileID: 3068428585341479440}
+  torque: 0
+  steeringAngle: 0
 --- !u!1 &1808424986506496681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1125,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1648738005449362203}
+  - {fileID: 3504565104316427260}
   m_Father: {fileID: 8847920193221792838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

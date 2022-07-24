@@ -1,16 +1,9 @@
-using Systems.InputSystem;
-using Systems.PlayerCreation.Interfaces;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Gameplay.Movement.Tank
+namespace Gameplay.Rotation.Tank
 {
-    public class AxisRotationMovement : LookDriver
+    public class TankTurretAndBarrelRotationDriver : LookDriver
     {
-        [Header("Developer Settings")]
-        [SerializeField] private bool lockHorizontalRot;
-        [SerializeField] private bool lockVerticalRot;
-        
         [Header("TankComponents")]
         [SerializeField] private GameObject turret;
         [SerializeField] private GameObject barrel;
