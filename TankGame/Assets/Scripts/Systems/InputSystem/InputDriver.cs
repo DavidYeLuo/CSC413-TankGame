@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using Systems.InputSystem.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Systems.InputSystem
 {
-    public class InputDriver : MonoBehaviour
+    public class InputDriver : MonoBehaviour, ISavePlayerControl
     {
         public SystemAsset systemAsset;
         // Observer pattern
