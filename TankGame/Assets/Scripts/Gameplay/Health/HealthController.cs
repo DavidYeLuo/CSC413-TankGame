@@ -4,14 +4,10 @@ using UnityEngine;
 
 namespace Gameplay.Health
 {
+    [RequireComponent(typeof(Collider))]
     public class HealthController : Health
     {
-        private HealthDriver driver;
-        
-        public void Init(HealthDriver driver)
-        { 
-            this.driver = driver;
-        }
+        [SerializeField] private HealthDriver driver;
 
         public override void Heal(int health)
         {

@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Movement.Interfaces;
 using Gameplay.Movement.Tank;
 using Systems.InputSystem;
 using Systems.PlayerCreation.Helpers;
@@ -8,18 +9,16 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay.Movement
 {
-    [RequireComponent(typeof(Movement))]
-    public class MovementController : MonoBehaviour, IRequireController
+    public class MovementController : MonoBehaviour, IRequireController, IMoveable
     {
         [Tooltip("Action button for moving. NOTE: Spelling matters.")]
         [SerializeField] private string nameOfMoveAction;
         private InputAction moveControl;
 
-        private Movement driver;
+        [SerializeField] private Movement driver;
 
         private void Start()
         {
-            driver = GetComponent<MovementDriver>();
             if (moveControl == null) // By default: It will use the master control
             {
                 moveControl = InputDriver.GetControls().Gameplay.Move;

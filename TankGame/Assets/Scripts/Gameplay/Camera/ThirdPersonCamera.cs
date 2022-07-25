@@ -8,6 +8,7 @@ namespace Gameplay.Camera
 {
     /**
      * Obsolete: It is much easier and likely better performance if we attach the camera to the player instead.
+     * This code manually calculates the position of the camera.
      */
     [Obsolete]
     public class ThirdPersonCamera : MonoBehaviour

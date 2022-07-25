@@ -7,14 +7,6 @@ namespace Gameplay.Movement
     public class MovementDriver : Movement, IRequirePlayerAsset
     {
         [SerializeField] protected FloatReference pushForceAsset;
-
-        /**
-         * Used to inject reference
-         */
-        public void SetPushForce(FloatReference asset)
-        {
-            pushForceAsset = asset;
-        }
         
         public override void Move(Vector2 direction)
         {

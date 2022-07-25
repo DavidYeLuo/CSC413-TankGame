@@ -10,17 +10,9 @@ public class MinimapCapture : MonoBehaviour, IRequirePlayerAsset
 {
     [SerializeField] private RenderTexture minimapAsset;
 
-    private Camera cam;
-
-    private void Start()
-    {
-        cam = GetComponent<Camera>();
-        if (minimapAsset == null) return;
-        cam.targetTexture = minimapAsset;
-    }
-
     public void GetPlayerAsset(PlayerAsset asset)
     {
         minimapAsset = asset.GetMinimap();
+        GetComponent<Camera>().targetTexture = minimapAsset;
     }
 }
