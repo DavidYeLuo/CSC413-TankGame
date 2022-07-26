@@ -1,25 +1,51 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ScriptableObjects
 {
+    [CreateAssetMenu(fileName = "PlayerInputsAsset", menuName = "Asset/PlayerInputs")]
     public class PlayerInputsReference : ScriptableObject
     {
-        public delegate void valueChanged();
-        public event valueChanged valueChangeEvent;
-        
-        private Dictionary<int, PlayerInput> playerInputs;
+        public delegate void inputsChanged();
+        public event inputsChanged inputsChangeEvent;
 
-        public Dictionary<int, PlayerInput> GetPlayerInputs()
+        [SerializeField] private List<PlayerInput> playerInputs;
+
+        public void Init()
+        {
+            playerInputs = new List<PlayerInput>();
+        }
+
+        public void AddControl(PlayerInput input)
+        {
+            playerInputs.Add(input);
+            InvokeEvent();
+        }
+
+        public void RemoveControl(int playerNum)
+        {
+            playerInputs.RemoveAt(playerNum);
+            InvokeEvent();
+        }
+
+        public List<PlayerInput> GetPlayerInputs()
         {
             return playerInputs;
         }
+        
+        // Unused code. Probably won't need it
+        // public void SetPlayerInputs(List<PlayerInput> inputs)
+        // {
+        //     playerInputs = inputs;
+        //     InvokeEvent();
+        // }
 
-        public void SetPlayerInputs(Dictionary<int, PlayerInput> inputs)
+        private void InvokeEvent()
         {
-            playerInputs = inputs;
-            valueChangeEvent.Invoke();
+            if (inputsChangeEvent == null) return;
+            inputsChangeEvent.Invoke();
         }
     }
 }

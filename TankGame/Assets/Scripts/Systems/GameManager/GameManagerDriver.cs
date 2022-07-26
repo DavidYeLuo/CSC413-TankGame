@@ -30,19 +30,19 @@ namespace Systems.GameManager
         public void CreatePlayers()
         {
             // Loads data from systemAsset and use them.
-            Dictionary<int, PlayerInput> playerInputs = systemAsset.GetPlayerInputs();
+            List<PlayerInput> playerInputs = systemAsset.GetPlayerInputs();
             playerList = new List<GameObject>(); // For Debugging
             
             foreach (var keyValuePair in playerInputs)
             {
                 // TODO: Use swap method between system and player data to create customized player data.
-                playerCreator.SetSpawnPosition(new Vector3(keyValuePair.Key * 20,5,keyValuePair.Key * 20));
+                playerCreator.SetSpawnPosition(new Vector3(keyValuePair.playerIndex * 20,5,keyValuePair.playerIndex * 20));
                 playerCreator.SetSpawnRotation(Quaternion.identity); // Default rotation
-                playerList.Add(playerCreator.Init(playerPrefab, keyValuePair.Value));
+                playerList.Add(playerCreator.Init(playerPrefab, keyValuePair));
             }
             
             // For Debugging
-            playerInputList = systemAsset.GetPlayerInputs().Values.ToList();
+            playerInputList = systemAsset.GetPlayerInputs();
         }
     }
 }

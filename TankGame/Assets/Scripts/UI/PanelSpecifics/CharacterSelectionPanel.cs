@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
 using UI.Functions;
 using Unity.VisualScripting;
 using UnityEditor.Overlays;
@@ -11,6 +12,7 @@ using Button = UnityEngine.UIElements.Button;
 
 public class CharacterSelectionPanel : MonoBehaviour
 {
+    [SerializeField] private SystemAsset systemAsset;
     [SerializeField] private PlayerSelection playerSelection;
     [SerializeField] private GameObject buttonPrefab;
 
@@ -26,13 +28,12 @@ public class CharacterSelectionPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInputManager.instance.onPlayerJoined += OnPlayerChange;
+        systemAsset.onPlayerInputAssetChange += UpdatePanel;
     }
 
     private void OnDisable()
     {
-        if (PlayerInputManager.instance == null) return; // Happens when scene is switched.
-        PlayerInputManager.instance.onPlayerJoined -= OnPlayerChange;
+        systemAsset.onPlayerInputAssetChange -= UpdatePanel;
     }
 
     private void OnPlayerChange(PlayerInput input)
@@ -41,6 +42,7 @@ public class CharacterSelectionPanel : MonoBehaviour
     }
     private void UpdatePanel()
     {
+        Debug.Log("UpdatePanel called");
         // Clear Button holders
         // Add Buttons
         for (int i = numberOfPanelsCreated; i < playerSelection.GetNumberOfPlayersPlaying(); i++)
@@ -54,6 +56,7 @@ public class CharacterSelectionPanel : MonoBehaviour
             _gameObject.transform.SetParent(gameObject.transform);
             
             numberOfPanelsCreated++;
+            Debug.Log(numberOfPanelsCreated);
         }
     }
 }

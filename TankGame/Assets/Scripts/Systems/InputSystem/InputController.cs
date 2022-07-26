@@ -11,7 +11,7 @@ namespace Systems.InputSystem
     {
         private static InputController instance;
         
-        private InputDriver driver;
+        [SerializeField] private InputDriver driver;
         private void OnEnable()
         {
             PlayerInputManager playerInputManager = PlayerInputManager.instance;
@@ -28,7 +28,7 @@ namespace Systems.InputSystem
 
         private void OnPlayerJoin(PlayerInput input)
         {
-            driver.AddControl(input.playerIndex, input);
+            driver.AddControl(input);
         }
 
         private void OnPlayerLeft(PlayerInput input)
@@ -49,7 +49,6 @@ namespace Systems.InputSystem
 
         private void Start()
         {
-            instance.driver = InputDriver.Instance;
             SwitchMode(UserMode.UI);
         }
 

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a407d7d69e6c4b0018548e123d3e19e9, type: 3}
-  m_Name: SystemAsset
+  m_Script: {fileID: 11500000, guid: 375dfd0a56ba41f79bd066497a99f962, type: 3}
+  m_Name: PlayerInputsAsset
   m_EditorClassIdentifier: 
-  playerInputs: {fileID: 0}
+  playerInputs: []
