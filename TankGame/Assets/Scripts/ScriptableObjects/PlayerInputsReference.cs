@@ -41,6 +41,15 @@ namespace ScriptableObjects
         //     playerInputs = inputs;
         //     InvokeEvent();
         // }
+        
+        public void SavePlayersControl()
+        {
+            foreach (var input in playerInputs)
+            {
+                DontDestroyOnLoad(input);
+            }
+            DontDestroyOnLoad(this);
+        }
 
         private void InvokeEvent()
         {

@@ -42,7 +42,6 @@ public class CharacterSelectionPanel : MonoBehaviour
     }
     private void UpdatePanel()
     {
-        Debug.Log("UpdatePanel called");
         // Clear Button holders
         // Add Buttons
         for (int i = numberOfPanelsCreated; i < playerSelection.GetNumberOfPlayersPlaying(); i++)
@@ -56,7 +55,6 @@ public class CharacterSelectionPanel : MonoBehaviour
             _gameObject.transform.SetParent(gameObject.transform);
             
             numberOfPanelsCreated++;
-            Debug.Log(numberOfPanelsCreated);
         }
     }
 }

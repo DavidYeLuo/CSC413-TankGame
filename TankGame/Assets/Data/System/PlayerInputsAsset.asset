@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375dfd0a56ba41f79bd066497a99f962, type: 3}
   m_Name: PlayerInputsAsset
   m_EditorClassIdentifier: 
-  playerInputs: []
+  playerInputs:
+  - {fileID: 0}
+  - {fileID: 0}

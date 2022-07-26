@@ -61,7 +61,7 @@ namespace UI.Functions
         public virtual void EnterGameplay()
         {
             // Switch scenes here.
-            InputController.SwitchMode(UserMode.Gameplay);
+            inputDriver.SwitchToGameplayMode();
         }
     }
 }

@@ -9,8 +9,6 @@ namespace Systems.InputSystem
     [RequireComponent(typeof(PlayerInputManager))]
     public class InputController : MonoBehaviour
     {
-        private static InputController instance;
-        
         [SerializeField] private InputDriver driver;
         private void OnEnable()
         {
@@ -35,33 +33,22 @@ namespace Systems.InputSystem
         {
             driver.RemoveControl(input.playerIndex);
         }
-
         
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-                return;
-            }
-            Destroy(this);
-        }
-
         private void Start()
         {
             SwitchMode(UserMode.UI);
         }
 
         // TODO: Make this a part of the driver class
-        public static void SwitchMode(UserMode mode)
+        public void SwitchMode(UserMode mode)
         {
             switch (mode)
             {
                 case UserMode.UI:
-                    instance.driver.SwitchToUIMode();
+                    driver.SwitchToUIMode();
                     break;
                 case UserMode.Gameplay:
-                    instance.driver.SwitchToGameplayMode();
+                    driver.SwitchToGameplayMode();
                     break;
                 default:
                     throw new NotImplementedException();

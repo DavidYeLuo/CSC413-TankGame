@@ -44,10 +44,10 @@ public class SystemAsset : ScriptableObject
     //     InvokeOnPlayerInputsAssetChangeEvent();
     // }
     //
-    // public PlayerInputsReference GetAsset()
-    // {
-    //     return playerInputs;
-    // }
+    public PlayerInputsReference GetPlayerInputsAsset()
+    {
+        return playerInputs;
+    }
 
     private void InvokeOnPlayerInputsAssetChangeEvent()
     {
