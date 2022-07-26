@@ -735,6 +735,10 @@ PrefabInstance:
       propertyPath: m_ChildControlHeight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3482033974377483102, guid: f9160b0ef168cd6ffaa1b0a1adc2cba4, type: 3}
+      propertyPath: textPrefab
+      value: 
+      objectReference: {fileID: 5294481046922725424, guid: 73844052b04a8ff32929e58b712dc04d, type: 3}
     - target: {fileID: 7881879012249518908, guid: f9160b0ef168cd6ffaa1b0a1adc2cba4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
