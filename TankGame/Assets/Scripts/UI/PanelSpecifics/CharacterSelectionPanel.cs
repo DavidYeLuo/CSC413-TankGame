@@ -15,7 +15,7 @@ public class CharacterSelectionPanel : MonoBehaviour
 {
     [SerializeField] private SystemAsset systemAsset;
     [SerializeField] private PlayerSelection playerSelection;
-    [SerializeField] private GameObject buttonPrefab;
+    [SerializeField] private GameObject textPrefab;
 
     [Header("Debug Purpose")] 
     [SerializeField] private int numberOfPanelsCreated;
@@ -46,12 +46,15 @@ public class CharacterSelectionPanel : MonoBehaviour
         // Clear Button holders
         List<PlayerInput> list = systemAsset.GetPlayerInputs();
         
+        // TODO: Find a better way to implement this.
+        // Create the right amount of texts.
+        
         // Add Buttons
         for (int i = numberOfPanelsCreated; i < list.Count;i++)
         {
-            GameObject _Button = Instantiate(buttonPrefab);
-            RectTransform rectTransform = _Button.GetComponent<RectTransform>();
-            TextMeshProUGUI textMeshPro = _Button.GetComponent<TextMeshProUGUI>();
+            GameObject textGameObject = Instantiate(textPrefab);
+            RectTransform rectTransform = textGameObject.GetComponent<RectTransform>();
+            TextMeshProUGUI textMeshPro = textGameObject.GetComponent<TextMeshProUGUI>();
             
             rectTransform.SetParent(gameObject.transform);
             rectTransform.anchoredPosition = Vector2.zero;
@@ -60,7 +63,7 @@ public class CharacterSelectionPanel : MonoBehaviour
             PlayerInput input = list[i];
             textMeshPro.text = String.Format("Player {0} is using {1}.", i+1, input.currentControlScheme);
             
-            buttons.Add(_Button);
+            buttons.Add(textGameObject);
             numberOfPanelsCreated++;
         }
     }
