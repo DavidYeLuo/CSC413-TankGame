@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ScriptableObjects;
 using Systems.InputSystem.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,20 +8,12 @@ namespace Systems.InputSystem
 {
     public class InputDriver : MonoBehaviour, ISavePlayerControl
     {
-        public SystemAsset systemAsset;
+        [Header("System Asset")]
+        [SerializeField] private SystemAsset systemAsset;
+        private PlayerInputsReference playerInputDictionary;
         // Observer pattern
         public delegate void changeMode(UserMode _mode);
         public static event changeMode changeModeEvent;
-        
-        // Singleton
-        private static InputDriver instance; // Singleton
-        public static InputDriver Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
         
         [Tooltip("Debug purpose")]
         [SerializeField] private UserMode mode;
@@ -28,29 +21,25 @@ namespace Systems.InputSystem
         // For the most part we don't use masterControl for gameplay.
         // It is mainly used for UI.
         private static PlayerControls masterControl; // This can pick up any device press.
-        
-        private Dictionary<int, PlayerInput> playerInputDictionary;
 
         private void Awake()
         {
-            if (instance == null)
-            {
+            if(masterControl == null)
                 masterControl = new PlayerControls();
 
-                var savedData = systemAsset.GetPlayerInputs();
-                if (savedData == null)
-                {
-                    playerInputDictionary = new Dictionary<int, PlayerInput>();
-                }
-                else
-                {
-                    playerInputDictionary = savedData;
-                }
-                instance = this;
-            }
-            else
+            playerInputDictionary = systemAsset.GetPlayerInputsAsset();
+
+            // Reset inputs if the data are old which leads to invalid reference in disk
+            bool containsOldData = false;
+            foreach (var playerInput in playerInputDictionary.GetPlayerInputs())
             {
-                Destroy(this);
+                if(playerInput == null) 
+                    containsOldData = true;
+                break;
+            }
+            if (containsOldData)
+            {
+                playerInputDictionary.Init();
             }
         }
 
@@ -64,23 +53,19 @@ namespace Systems.InputSystem
            masterControl.Disable(); 
         }
 
-        public void AddControl(int playerNum, PlayerInput input)
+        public void AddControl(PlayerInput input)
         {
-            playerInputDictionary.Add(playerNum, input);
+            playerInputDictionary.AddControl(input);
         }
 
         public void RemoveControl(int playerNum)
         {
-            playerInputDictionary.Remove(playerNum);
-        }
-        public bool TryGetValue(int playerIndex, out PlayerInput input)
-        {
-            return playerInputDictionary.TryGetValue(playerIndex, out input);
+            playerInputDictionary.RemoveControl(playerNum);
         }
 
         public List<PlayerInput> GetAllPlayerInputs()
         {
-            return new List<PlayerInput>(playerInputDictionary.Values);
+            return playerInputDictionary.GetPlayerInputs();
         }
 
         public static PlayerControls GetControls()
@@ -121,11 +106,13 @@ namespace Systems.InputSystem
 
         public void SavePlayersControl()
         {
-            foreach (var input in playerInputDictionary.Values)
+            foreach (var input in playerInputDictionary.GetPlayerInputs())
             {
                 DontDestroyOnLoad(input);
             }
-            systemAsset.SetPlayerInputs(playerInputDictionary);
+            // systemAsset.SetPlayerInputs(playerInputDictionary);
+            // systemAsset.SetAsset(playerInputDictionary); // TODO: Fix
+            playerInputDictionary.SavePlayersControl();
         }
         
         // TODO: Do testing on locking cursor

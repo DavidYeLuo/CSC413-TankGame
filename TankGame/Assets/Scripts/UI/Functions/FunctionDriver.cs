@@ -18,7 +18,6 @@ namespace UI.Functions
         [SerializeField] private Navigable previousPanel;
         protected virtual void Start()
         {
-            systemAsset.SetPlayerInputs(null); // resets the playerinputs
             currentPanel = startPanel;
             currentPanel.gameObject.SetActive(true);
         }
@@ -62,7 +61,7 @@ namespace UI.Functions
         public virtual void EnterGameplay()
         {
             // Switch scenes here.
-            InputController.SwitchMode(UserMode.Gameplay);
+            inputDriver.SwitchToGameplayMode();
         }
     }
 }
