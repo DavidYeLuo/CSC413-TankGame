@@ -28,9 +28,18 @@ namespace Systems.InputSystem
                 masterControl = new PlayerControls();
 
             playerInputDictionary = systemAsset.GetPlayerInputsAsset();
+
+            // Reset inputs if the data are old which leads to invalid reference in disk
+            bool containsOldData = false;
             foreach (var playerInput in playerInputDictionary.GetPlayerInputs())
             {
-                if(playerInput == null) Debug.Log("PlayerInput is null");
+                if(playerInput == null) 
+                    containsOldData = true;
+                break;
+            }
+            if (containsOldData)
+            {
+                playerInputDictionary.Init();
             }
         }
 
