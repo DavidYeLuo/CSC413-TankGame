@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
+using TMPro;
 using UI.Functions;
 using Unity.VisualScripting;
 using UnityEditor.Overlays;
@@ -43,17 +44,23 @@ public class CharacterSelectionPanel : MonoBehaviour
     private void UpdatePanel()
     {
         // Clear Button holders
+        List<PlayerInput> list = systemAsset.GetPlayerInputs();
+        
         // Add Buttons
-        for (int i = numberOfPanelsCreated; i < playerSelection.GetNumberOfPlayersPlaying(); i++)
+        for (int i = numberOfPanelsCreated; i < list.Count;i++)
         {
-            GameObject _gameObject = new GameObject(String.Format("Player: {0}", i));
             GameObject _Button = Instantiate(buttonPrefab);
-            _Button.transform.position = Vector3.zero;
-            _Button.transform.SetParent(_gameObject.transform, false);
+            RectTransform rectTransform = _Button.GetComponent<RectTransform>();
+            TextMeshProUGUI textMeshPro = _Button.GetComponent<TextMeshProUGUI>();
             
-            buttons.Add(_gameObject);
-            _gameObject.transform.SetParent(gameObject.transform);
+            rectTransform.SetParent(gameObject.transform);
+            rectTransform.anchoredPosition = Vector2.zero;
+            rectTransform.localScale = new Vector3(1f, 1f, 1f);
+
+            PlayerInput input = list[i];
+            textMeshPro.text = String.Format("Player {0} is using {1}.", i+1, input.currentControlScheme);
             
+            buttons.Add(_Button);
             numberOfPanelsCreated++;
         }
     }
