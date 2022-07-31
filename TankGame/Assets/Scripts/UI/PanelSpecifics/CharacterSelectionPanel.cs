@@ -1,15 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using ScriptableObjects;
 using TMPro;
 using UI.Functions;
-using Unity.VisualScripting;
-using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using Button = UnityEngine.UIElements.Button;
 
 public class CharacterSelectionPanel : MonoBehaviour
 {
