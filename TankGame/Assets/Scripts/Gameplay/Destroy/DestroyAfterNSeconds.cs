@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Gameplay.Destroy
@@ -8,7 +7,7 @@ namespace Gameplay.Destroy
         [SerializeField] private float seconds;
         private void Start()
         {
-            Destroy(this, seconds);
+            Destroy(this.gameObject, seconds);
         }
     }
 }
