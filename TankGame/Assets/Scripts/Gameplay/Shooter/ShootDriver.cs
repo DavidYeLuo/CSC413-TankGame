@@ -13,7 +13,7 @@ namespace Gameplay.Shooter
         [SerializeField] private bool hasRecoil;
         [SerializeField] private float recoilForce;
         [SerializeField] private Rigidbody forceToApplyTo;
-        [SerializeField] private AudioSource shootSound;
+        [SerializeField] private AudioSource audioSource;
         
         public void Shoot()
         {
@@ -22,9 +22,9 @@ namespace Gameplay.Shooter
                 forceToApplyTo.AddForce(recoilForce * (-1) * shootFrom.transform.forward, ForceMode.Force);
             }
 
-            if (shootSound != null)
+            if (audioSource != null)
             {
-                shootSound.Play(0);
+                audioSource.Play(0);
             }
             Instantiate(objectToShoot, shootFrom.transform.position, shootFrom.transform.rotation);
         }

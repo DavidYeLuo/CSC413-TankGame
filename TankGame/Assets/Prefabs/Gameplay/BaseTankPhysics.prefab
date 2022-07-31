@@ -1109,7 +1109,7 @@ MonoBehaviour:
   hasRecoil: 1
   recoilForce: 1000
   forceToApplyTo: {fileID: 7238713114990129438}
-  shootSound: {fileID: 5260994245550502007}
+  audioSource: {fileID: 5260994245550502007}
 --- !u!82 &5260994245550502007
 AudioSource:
   m_ObjectHideFlags: 0
