@@ -18,6 +18,9 @@ namespace Gameplay.Health
         [SerializeField] private IntReference healthAsset;
         [SerializeField] private IntReference maxHealthAsset;
 
+        public delegate void Death();
+        public event Death OnDeath;
+
         // Ugly setter and getter but necessary for development
         private int _health
         {
@@ -30,6 +33,10 @@ namespace Gameplay.Health
             {
                 if(useAssets) healthAsset.SetValue(value);
                 health = value;
+                if (health == 0 && OnDeath != null)
+                {
+                    OnDeath.Invoke();
+                }
             }
         }
         private int _maxHealth
