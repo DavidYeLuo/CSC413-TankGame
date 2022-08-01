@@ -20,8 +20,6 @@ namespace Gameplay.Health
             ITakeDamage obj = collider.gameObject.GetComponent<ITakeDamage>();
             if (obj == null) return;
             obj.TakeDamage(damage);
-            
-            if(destroyOnTrigger) gameObject.SetActive(false);
         }
     }
 }
