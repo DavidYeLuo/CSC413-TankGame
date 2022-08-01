@@ -13,8 +13,7 @@ namespace Systems.InputSystem
         private void OnEnable()
         {
             PlayerInputManager playerInputManager = PlayerInputManager.instance;
-            Debug.Log(playerInputManager);
-            if(playerInputManager == null) return;
+            if (playerInputManager == null) return;
             playerInputManager.onPlayerJoined += OnPlayerJoin;
             playerInputManager.onPlayerLeft += OnPlayerLeft;
         }
