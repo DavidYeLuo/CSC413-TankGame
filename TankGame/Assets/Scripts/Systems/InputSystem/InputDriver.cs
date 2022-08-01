@@ -108,6 +108,7 @@ namespace Systems.InputSystem
         {
             foreach (var input in playerInputDictionary.GetPlayerInputs())
             {
+                if (UserMode.Gameplay == mode) input.gameObject.transform.SetParent(null);
                 DontDestroyOnLoad(input);
             }
             // systemAsset.SetPlayerInputs(playerInputDictionary);

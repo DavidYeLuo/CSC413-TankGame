@@ -720,6 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946b070aaa74e4f0a8b84bead093322e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputController: {fileID: 0}
 --- !u!224 &1739756680022397969 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2959699969505519266, guid: c33fe9adf8b159c65b689dc48c280d4e, type: 3}

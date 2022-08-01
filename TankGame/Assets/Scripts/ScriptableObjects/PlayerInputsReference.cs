@@ -46,6 +46,7 @@ namespace ScriptableObjects
         {
             foreach (var input in playerInputs)
             {
+                if(input.transform.parent != null) input.transform.SetParent(null);
                 DontDestroyOnLoad(input);
             }
             DontDestroyOnLoad(this);
