@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   systemAsset: {fileID: 11400000, guid: 36d593613ed10fbf5b668d3e816a2835, type: 2}
-  startPanel: {fileID: 0}
+  startPanel: {fileID: 1172559896}
   inputDriver: {fileID: 283101469}
   currentPanel: {fileID: 0}
   previousPanel: {fileID: 0}
@@ -1756,6 +1756,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1739756681444350237, guid: 81af7e190df59c9b1a3674c8467a21d5, type: 3}
   m_PrefabInstance: {fileID: 1172559894}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1172559896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4113408710624134705, guid: 81af7e190df59c9b1a3674c8467a21d5, type: 3}
+  m_PrefabInstance: {fileID: 1172559894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172559895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dfd2b0f88a45a8a78f6a582bdbf2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1393770746
 GameObject:
   m_ObjectHideFlags: 0
