@@ -108,9 +108,8 @@ namespace Systems.InputSystem
         {
             foreach (var input in playerInputDictionary.GetPlayerInputs())
             {
-                // TODO: Not sure why the compiler is throwing warnings even after trying to unparent the gameobject.
-                if (UserMode.Gameplay == mode) input.gameObject.transform.SetParent(null);
-                DontDestroyOnLoad(input);
+                input.gameObject.transform.SetParent(null);
+                DontDestroyOnLoad(input.gameObject);
             }
             playerInputDictionary.SavePlayersControl();
         }
