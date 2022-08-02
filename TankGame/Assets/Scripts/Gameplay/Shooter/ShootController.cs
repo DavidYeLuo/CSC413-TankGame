@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay.Shooter
 {
-    public class ShootController : MonoBehaviour, IRequireController, IShootable
+    public class ShootController : MonoBehaviour, IRequireController, IShootable, IAddSpecialAmmunition
     {
         [Header("Control")] 
         [Tooltip("Action button for shooting. NOTE: Spelling matters.")]
@@ -62,6 +62,11 @@ namespace Gameplay.Shooter
         public void Shoot()
         {
             driver.Shoot();
+        }
+
+        public void AddSpecialAmmunition(GameObject prefab, int bullets)
+        {
+            driver.AddSpecialAmmunition(prefab, bullets);
         }
     }
 }
