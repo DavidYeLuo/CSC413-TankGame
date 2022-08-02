@@ -11,7 +11,6 @@ public class OnCollisionSpawnAWall : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Called!");
         ContactPoint contactPoint = collision.contacts[0];
         Vector3 planeNormal = Vector3.ProjectOnPlane(transform.forward, collision.contacts[0].normal);
         Instantiate(prefab, contactPoint.point, Quaternion.LookRotation(planeNormal,contactPoint.normal));
