@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,7 +9,7 @@ public class RandomSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> items;
     [SerializeField] private List<GameObject> possiblePositions;
-    [SerializeField] private float spawnDelayInSeconds;
+    [SerializeField] private FloatReference spawnDelayInSeconds;
     [SerializeField] private bool isSpawning;
 
     [Header("Debug")] 
@@ -17,6 +18,7 @@ public class RandomSpawner : MonoBehaviour
     
     private void Start()
     {
+        if (spawnDelayInSeconds.GetValue() < 0.01) return;
         StartCoroutine(Spawn());
     }
 
@@ -24,7 +26,7 @@ public class RandomSpawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(spawnDelayInSeconds);
+            yield return new WaitForSeconds(spawnDelayInSeconds.GetValue());
             GenerateRandomItemAndPosition();
             Instantiate(item, pos, Quaternion.identity);
         }

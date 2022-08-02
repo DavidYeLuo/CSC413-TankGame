@@ -2162,7 +2162,7 @@ MonoBehaviour:
   - {fileID: 263058968}
   - {fileID: 1661838098}
   - {fileID: 188409354}
-  spawnDelayInSeconds: 3
+  spawnDelayInSeconds: {fileID: 11400000, guid: 0534d5df8b71824c68ae2f5a3fa84cd1, type: 2}
   isSpawning: 1
   item: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}

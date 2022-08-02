@@ -25,6 +25,7 @@ namespace ScriptableObjects
         public void SetValue(float val)
         {
             this.value = val;
+            if(valueChangeEvent == null) return;
             valueChangeEvent.Invoke();
         }
 
