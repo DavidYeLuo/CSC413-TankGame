@@ -85,12 +85,12 @@ namespace Gameplay.Health
 
         private void AddHealth(int hp)
         {
-            _health += Validate(hp);
+            _health = Validate(_health + hp);
         }
         
         private void LoseHealth(int hp)
         {
-            _health -= Validate(hp);
+            _health = Validate(_health - hp);
         }
 
         private int Validate(int value)

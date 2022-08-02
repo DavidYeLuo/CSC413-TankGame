@@ -32,7 +32,7 @@ public class RandomSpawner : MonoBehaviour
 
     private void GenerateRandomItemAndPosition()
     {
-        item = items[Random.Range(0, items.Count - 1)];
-        pos = possiblePositions[Random.Range(0, possiblePositions.Count - 1)].transform.position;
+        item = items[Random.Range(0, items.Count)];
+        pos = possiblePositions[Random.Range(0, possiblePositions.Count)].transform.position;
     }
 }
