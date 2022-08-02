@@ -5052,7 +5052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65ffb8bd0c049b292bbfea6448fbb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 1
+  seconds: 15
   audio: {fileID: 0}
 --- !u!114 &3130834603803369172
 MonoBehaviour:
