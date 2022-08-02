@@ -14,7 +14,8 @@ namespace Gameplay.Health
 
         private void OnTriggerEnter(Collider collider)
         {
-            audio.Play();
+            if(audio != null)
+                audio.Play();
             
             ITakeDamage obj = collider.gameObject.GetComponent<ITakeDamage>();
             if (obj == null) return;
