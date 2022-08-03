@@ -20,7 +20,7 @@ namespace UI.Functions
         {
             if (startPanel == null) return;
             currentPanel = startPanel;
-            currentPanel.gameObject.SetActive(true);
+            // currentPanel.gameObject.SetActive(true);
         }
         
         public virtual void GotoPreviousPanel()

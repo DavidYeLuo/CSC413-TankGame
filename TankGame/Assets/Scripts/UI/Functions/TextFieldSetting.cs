@@ -14,7 +14,6 @@ namespace UI.Functions
         {
             float temp;
             float.TryParse(textField.text, out temp);
-            Debug.LogFormat("Textfield: {0}, temp: {1}", textField.text, temp);
             if(temp != null)
             {
                 floatReference.SetValue(temp);

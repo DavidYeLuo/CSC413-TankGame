@@ -8,6 +8,7 @@ namespace Systems.GameManager
     public class TurnOnControllerOnGameplay : MonoBehaviour
     {
         [SerializeField] private SystemAsset systemAsset;
+        [SerializeField] private string actionMap;
         private void OnEnable()
         {
             InputDriver.changeModeEvent += TurnOff;
