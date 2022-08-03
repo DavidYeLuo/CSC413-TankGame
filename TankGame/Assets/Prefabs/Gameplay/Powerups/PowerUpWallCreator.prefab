@@ -4983,7 +4983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specialBulletPrefab: {fileID: 5640041948142409580, guid: a0557a0389525b205b56256ae2da3071, type: 3}
-  ammoCount: 1
+  ammoCount: 4
   audio: {fileID: 0}
 --- !u!1 &100010
 GameObject:
