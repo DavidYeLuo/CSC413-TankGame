@@ -38,7 +38,7 @@ namespace Systems.InputSystem
         
         private void Start()
         {
-            SwitchMode(UserMode.UI);
+            // SwitchMode(UserMode.UI);
         }
 
         // TODO: Make this a part of the driver class
