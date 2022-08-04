@@ -1,9 +1,9 @@
 using Gameplay.Shooter.Interfaces;
 using UnityEngine;
 
-namespace Gameplay.Shooter
+namespace Gameplay.Shooter.Receptors
 {
-    public class PickupAmmunition : MonoBehaviour, IAddSpecialAmmunition
+    public class PickupAmmunitionReceptor : MonoBehaviour, IAddSpecialAmmunition
     {
         [SerializeField] private ShootController controller;
         public void AddSpecialAmmunition(GameObject prefab, int bullets)

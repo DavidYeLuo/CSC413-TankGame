@@ -1,11 +1,7 @@
-using System;
 using Gameplay.Health.Interfaces;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UIElements;
 
-namespace Gameplay.Health
+namespace Gameplay.Collision
 {
     public class DamageOnTrigger : MonoBehaviour
     {

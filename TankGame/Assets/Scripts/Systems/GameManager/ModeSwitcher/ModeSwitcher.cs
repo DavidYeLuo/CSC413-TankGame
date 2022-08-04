@@ -1,11 +1,9 @@
-using System;
 using Systems.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace UI.Functions
+namespace Systems.GameManager.ModeSwitcher
 {
-    // TODO: Remove this class
     public class ModeSwitcher : MonoBehaviour
     {
         [SerializeField] private InputController inputController;
@@ -28,11 +26,11 @@ namespace UI.Functions
             
         }
 
-        public void SwitchToUI()
+        protected void SwitchToUI()
         {
             inputController.SwitchMode(UserMode.UI);
         }
-        public void SwitchToGameplay()
+        protected void SwitchToGameplay()
         {
             inputController.SwitchMode(UserMode.Gameplay);
         }

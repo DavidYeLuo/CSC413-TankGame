@@ -2,11 +2,10 @@ using System.Collections.Generic;
 using Systems.InputSystem;
 using UnityEngine;
 
-namespace UI
+namespace Systems.GameManager.ModeSwitcher.Subscribers
 {
-    public class EnableOnUI : MonoBehaviour
+    public class EnableOnGameplay : MonoBehaviour
     {
-        
         [SerializeField] private List<GameObject> gameObjs;
         private void OnEnable()
         {
@@ -19,7 +18,7 @@ namespace UI
 
         private void OnModeChange(UserMode mode)
         {
-            if (UserMode.UI != mode) return;
+            if (UserMode.Gameplay != mode) return;
             foreach (var objs in gameObjs)
             {
                 objs.SetActive(true);

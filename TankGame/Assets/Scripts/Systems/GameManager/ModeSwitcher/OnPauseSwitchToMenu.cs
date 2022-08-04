@@ -1,8 +1,6 @@
-using UI.Functions;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DefaultNamespace.Gameplay.MasterControl
+namespace Systems.GameManager.ModeSwitcher
 {
     public class OnPauseSwitchToMenu : ModeSwitcher 
     {

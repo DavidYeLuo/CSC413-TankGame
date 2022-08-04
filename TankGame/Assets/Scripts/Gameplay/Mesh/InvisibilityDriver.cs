@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace Gameplay.Mesh
 {
-    public class InvisibleDriver : MonoBehaviour, IBeInvisibleResponse
+    /**
+     * Deactivate the gameObject for the an amount of seconds
+     */
+    public class InvisibilityDriver : MonoBehaviour, IBeInvisibleResponse
     {
         [SerializeField] private GameObject objToBeInvisible;
         [Header("Debug")] 
@@ -13,6 +16,9 @@ namespace Gameplay.Mesh
         public delegate void cooldownOver();
         public event cooldownOver cooldownOverEvent;
 
+        /**
+         * We are implementing using a coroutine
+         */
         private IEnumerator DeactivateGameObject(float seconds)
         {
             objToBeInvisible.SetActive(false);

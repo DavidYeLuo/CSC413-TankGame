@@ -1,7 +1,7 @@
 using Gameplay.Shooter.Interfaces;
 using UnityEngine;
 
-namespace Gameplay.Shooter
+namespace Gameplay.Collision
 {
     public class OnTriggerAddSpecialAmmunition : MonoBehaviour
     {

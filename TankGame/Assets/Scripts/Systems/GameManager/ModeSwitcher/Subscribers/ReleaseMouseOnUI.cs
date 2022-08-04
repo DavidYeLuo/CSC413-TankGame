@@ -1,7 +1,7 @@
 using Systems.InputSystem;
 using UnityEngine;
 
-namespace Systems.GameManager
+namespace Systems.GameManager.ModeSwitcher.Subscribers
 {
     public class ReleaseMouseOnUI : MonoBehaviour
     {

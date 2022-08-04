@@ -1,7 +1,7 @@
 using Systems.InputSystem;
 using UnityEngine;
 
-namespace UI
+namespace Systems.GameManager.ModeSwitcher.Subscribers
 {
     public class ResumeGameOnGameplay : MonoBehaviour
     {

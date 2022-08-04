@@ -1,13 +1,12 @@
-using System;
 using Gameplay.Mesh.Interfaces;
 using UnityEngine;
 
-namespace Gameplay.Mesh
+namespace Gameplay.Mesh.Receptors
 {
-    public class TakePowerUpInvisible : MonoBehaviour, ICanBeInvisible
+    public class InvisibilityPowerUpReceptor : MonoBehaviour, ICanBeInvisible
     {
-        [SerializeField] private InvisibleDriver driver;
-        public event InvisibleDriver.cooldownOver cooldownOverEvent;
+        [SerializeField] private InvisibilityDriver driver;
+        public event InvisibilityDriver.cooldownOver cooldownOverEvent;
 
         private void OnEnable()
         {

@@ -3,7 +3,7 @@ using Systems.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Systems.GameManager
+namespace Systems.GameManager.ModeSwitcher.Subscribers
 {
     public class TurnOnControllerOnGameplay : MonoBehaviour
     {
