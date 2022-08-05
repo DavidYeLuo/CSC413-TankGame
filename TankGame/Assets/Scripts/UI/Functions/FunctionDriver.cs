@@ -18,8 +18,9 @@ namespace UI.Functions
         [SerializeField] private Navigable previousPanel;
         protected virtual void Start()
         {
+            if (startPanel == null) return;
             currentPanel = startPanel;
-            currentPanel.gameObject.SetActive(true);
+            // currentPanel.gameObject.SetActive(true);
         }
         
         public virtual void GotoPreviousPanel()
@@ -57,6 +58,11 @@ namespace UI.Functions
         public virtual void LoadScene(string scene)
         {
             SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        }
+
+        public virtual void SwitchToGameplayMode()
+        {
+            inputDriver.SwitchToGameplayMode();
         }
         public virtual void EnterGameplay()
         {

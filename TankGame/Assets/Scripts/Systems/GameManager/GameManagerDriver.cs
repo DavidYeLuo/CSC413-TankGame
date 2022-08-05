@@ -21,7 +21,8 @@ namespace Systems.GameManager
         [SerializeField] private PlayerCreator playerCreator;
         
         // TODO: Make a list of transforms for random spawn points.
-        
+        [SerializeField] private SpawnDriver spawnDriver;
+
         // Test
         [Header("For Debugging")]
         [SerializeField] private List<GameObject> playerList;
@@ -36,7 +37,8 @@ namespace Systems.GameManager
             foreach (var keyValuePair in playerInputs)
             {
                 // TODO: Use swap method between system and player data to create customized player data.
-                playerCreator.SetSpawnPosition(new Vector3(keyValuePair.playerIndex * 20,5,keyValuePair.playerIndex * 20));
+                // playerCreator.SetSpawnPosition(new Vector3(keyValuePair.playerIndex * 20,5,keyValuePair.playerIndex * 20));
+                playerCreator.SetSpawnPosition(spawnDriver.GetSpawnLocation());
                 playerCreator.SetSpawnRotation(Quaternion.identity); // Default rotation
                 playerList.Add(playerCreator.Init(playerPrefab, keyValuePair));
             }

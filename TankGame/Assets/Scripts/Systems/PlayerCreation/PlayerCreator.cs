@@ -1,15 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Camera;
-using Gameplay.Health;
-using Gameplay.Movement;
-using ScriptableObjects;
-using Systems.CameraSystem;
 using Systems.PlayerCreation.Interfaces;
-using UI.Health;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.tvOS;
 
 namespace Systems.PlayerCreation
 {

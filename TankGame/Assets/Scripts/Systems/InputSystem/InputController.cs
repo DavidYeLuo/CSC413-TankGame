@@ -13,6 +13,7 @@ namespace Systems.InputSystem
         private void OnEnable()
         {
             PlayerInputManager playerInputManager = PlayerInputManager.instance;
+            if (playerInputManager == null) return;
             playerInputManager.onPlayerJoined += OnPlayerJoin;
             playerInputManager.onPlayerLeft += OnPlayerLeft;
         }
@@ -20,6 +21,7 @@ namespace Systems.InputSystem
         private void OnDisable()
         {
             PlayerInputManager playerInputManager = PlayerInputManager.instance;
+            if(playerInputManager == null) return;
             playerInputManager.onPlayerJoined -= OnPlayerJoin;
             playerInputManager.onPlayerLeft -= OnPlayerLeft;
         }
@@ -36,7 +38,7 @@ namespace Systems.InputSystem
         
         private void Start()
         {
-            SwitchMode(UserMode.UI);
+            //SwitchMode(UserMode.UI);
         }
 
         // TODO: Make this a part of the driver class

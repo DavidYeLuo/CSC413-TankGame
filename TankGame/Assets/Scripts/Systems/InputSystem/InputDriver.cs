@@ -97,7 +97,7 @@ namespace Systems.InputSystem
         public void SwitchToGameplayMode()
         {
             masterControl.UI.Disable();
-            masterControl.Gameplay.Enable(); // TODO: Maybe decide not to use the master control on gameplay
+            masterControl.Gameplay.Enable(); 
             mode = UserMode.Gameplay;
             
             if (changeModeEvent == null) return;
@@ -108,10 +108,9 @@ namespace Systems.InputSystem
         {
             foreach (var input in playerInputDictionary.GetPlayerInputs())
             {
-                DontDestroyOnLoad(input);
+                input.gameObject.transform.SetParent(null);
+                DontDestroyOnLoad(input.gameObject);
             }
-            // systemAsset.SetPlayerInputs(playerInputDictionary);
-            // systemAsset.SetAsset(playerInputDictionary); // TODO: Fix
             playerInputDictionary.SavePlayersControl();
         }
         
