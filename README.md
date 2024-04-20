@@ -1,11 +1,5 @@
 # csc413-tankgame
 
-
-| Student Information |                      |
-| :-----------------: | -------------------- |
-|    Student Name     | David Ye Luo         |
-|    Student Email    | dyeluo@mail.sfsu.edu |
-
 # Project Structure Layout
 
 ## Builds
